@@ -1,25 +1,39 @@
 // Default color values from styles.css (original values)
 const defaultColors = {
-  gray: { bg: '#dcdcdc', text: '#000000' }, // highlight was bg
-  brown: { bg: '#986a33', text: '#ffffff' }, // highlight was bg
-  orange: { bg: '#ff9351', text: '#000000' },// highlight was bg
-  yellow: { bg: '#faff72', text: '#000000' },// highlight was bg
-  green: { bg: '#74de2e', text: '#000000' }, // highlight was bg
-  blue: { bg: '#3da5ff', text: '#ffffff' },  // highlight was bg
-  purple: { bg: '#bf51e2', text: '#ffffff' },// highlight was bg
-  pink: { bg: '#ff74bc', text: '#ffffff' },  // highlight was bg
-  red: { bg: '#ff3737', text: '#ffffff' },   // highlight was bg
+  gray: { highlight: '#dcdcdc', text: '#000000' },
+  brown: { highlight: '#986a33', text: '#ffffff' },
+  orange: { highlight: '#ff9351', text: '#000000' },
+  yellow: { highlight: '#faff72', text: '#000000' },
+  green: { highlight: '#74de2e', text: '#000000' },
+  blue: { highlight: '#3da5ff', text: '#ffffff' },
+  purple: { highlight: '#bf51e2', text: '#ffffff' },
+  pink: { highlight: '#ff74bc', text: '#ffffff' },
+  red: { highlight: '#ff3737', text: '#ffffff' },
 };
 
 const themes = [
-  'gray', 'brown', 'orange', 'yellow', 'green',
-  'blue', 'purple', 'pink', 'red'
+  'gray',
+  'brown',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'purple',
+  'pink',
+  'red',
 ];
 
 function populateInputs(colorsToLoad) {
-  themes.forEach(theme => {
-    document.getElementById(`${theme}-bg`).value = colorsToLoad[theme]?.bg || defaultColors[theme].bg;
-    document.getElementById(`${theme}-text`).value = colorsToLoad[theme]?.text || defaultColors[theme].text;
+  themes.forEach((theme) => {
+    const bgInput = document.getElementById(`${theme}-bg`);
+    const textInput = document.getElementById(`${theme}-text`);
+    if (bgInput && bgInput instanceof HTMLInputElement) {
+      bgInput.value =
+        colorsToLoad[theme]?.highlight || defaultColors[theme].highlight;
+    }
+    if (textInput && textInput instanceof HTMLInputElement) {
+      textInput.value = colorsToLoad[theme]?.text || defaultColors[theme].text;
+    }
   });
 }
 
@@ -34,11 +48,20 @@ function loadOptions() {
 // Save settings
 function saveOptions() {
   const newColors = {};
-  themes.forEach(theme => {
-    newColors[theme] = {
-      bg: document.getElementById(`${theme}-bg`).value,
-      text: document.getElementById(`${theme}-text`).value,
-    };
+  themes.forEach((theme) => {
+    const bgInput = document.getElementById(`${theme}-bg`);
+    const textInput = document.getElementById(`${theme}-text`);
+    if (
+      bgInput &&
+      bgInput instanceof HTMLInputElement &&
+      textInput &&
+      textInput instanceof HTMLInputElement
+    ) {
+      newColors[theme] = {
+        highlight: bgInput.value,
+        text: textInput.value,
+      };
+    }
   });
 
   chrome.storage.sync.set({ highlightColors: newColors }, () => {
@@ -49,12 +72,20 @@ function saveOptions() {
       status.id = 'status-message';
       status.className = 'text-center mt-4 text-sm font-medium';
       // Insert status message after the save button container
-      const saveButtonContainer = document.querySelector('.flex.justify-center.mt-8');
+      const saveButtonContainer = document.querySelector(
+        '.flex.justify-center.mt-8',
+      );
       if (saveButtonContainer && saveButtonContainer.parentNode) {
-        saveButtonContainer.parentNode.insertBefore(status, saveButtonContainer.nextSibling);
+        saveButtonContainer.parentNode.insertBefore(
+          status,
+          saveButtonContainer.nextSibling,
+        );
       } else {
         // Fallback if the specific container isn't found
-        document.querySelector('main').appendChild(status);
+        const mainElement = document.querySelector('main');
+        if (mainElement) {
+          mainElement.appendChild(status);
+        }
       }
     }
     status.textContent = 'Settings saved.';
@@ -74,11 +105,19 @@ function resetOptions() {
       status = document.createElement('p');
       status.id = 'status-message';
       status.className = 'text-center mt-4 text-sm font-medium';
-      const saveButtonContainer = document.querySelector('.flex.justify-center.mt-8');
-       if (saveButtonContainer && saveButtonContainer.parentNode) {
-        saveButtonContainer.parentNode.insertBefore(status, saveButtonContainer.nextSibling);
+      const saveButtonContainer = document.querySelector(
+        '.flex.justify-center.mt-8',
+      );
+      if (saveButtonContainer && saveButtonContainer.parentNode) {
+        saveButtonContainer.parentNode.insertBefore(
+          status,
+          saveButtonContainer.nextSibling,
+        );
       } else {
-        document.querySelector('main').appendChild(status);
+        const mainElement = document.querySelector('main');
+        if (mainElement) {
+          mainElement.appendChild(status);
+        }
       }
     }
     status.textContent = 'Colors reset to defaults and saved.';
@@ -89,27 +128,87 @@ function resetOptions() {
   });
 }
 
+// Function to update preview span for a specific theme
+function updatePreview(theme) {
+  const bgInput = document.getElementById(`${theme}-bg`);
+  const textInput = document.getElementById(`${theme}-text`);
+
+  if (
+    bgInput &&
+    bgInput instanceof HTMLInputElement &&
+    textInput &&
+    textInput instanceof HTMLInputElement
+  ) {
+    const bgColor = bgInput.value;
+    const textColor = textInput.value;
+
+    // Find the preview span by looking for the input's parent container and finding the span within it
+    const container = bgInput.closest(
+      'div.bg-\\[var\\(--card-background\\)\\]',
+    );
+    const previewSpan = container
+      ? container.querySelector('span.font-semibold')
+      : null;
+
+    if (previewSpan && previewSpan instanceof HTMLElement) {
+      previewSpan.style.backgroundColor = bgColor;
+      previewSpan.style.color = textColor;
+    }
+  }
+}
+
+// Function to update all previews
+function updateAllPreviews() {
+  themes.forEach((theme) => {
+    updatePreview(theme);
+  });
+}
+
+// Function to add event listeners to color inputs
+function addColorInputListeners() {
+  themes.forEach((theme) => {
+    const bgInput = document.getElementById(`${theme}-bg`);
+    const textInput = document.getElementById(`${theme}-text`);
+
+    if (bgInput && bgInput instanceof HTMLInputElement) {
+      bgInput.addEventListener('input', () => updatePreview(theme));
+    }
+    if (textInput && textInput instanceof HTMLInputElement) {
+      textInput.addEventListener('input', () => updatePreview(theme));
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadOptions();
+
+  // Add event listeners for live preview updates
+  addColorInputListeners();
+
+  // Update previews initially
+  setTimeout(() => {
+    updateAllPreviews();
+  }, 100);
+
   // The save button in the new template is the first button in the main section
   const saveButton = document.querySelector('main button');
   if (saveButton) {
     saveButton.addEventListener('click', saveOptions);
   } else {
-    console.error("Save button not found");
+    console.error('Save button not found');
   }
 
-  // Add reset button functionality - creating it as it's not in the new template by default
-  const buttonContainer = document.querySelector('.flex.justify-center.mt-8');
-  if (buttonContainer) {
-    const resetButton = document.createElement('button');
-    resetButton.id = 'reset-defaults';
-    resetButton.textContent = 'Restore to Defaults';
-    // Apply Tailwind classes for styling to match the save button, but with a secondary color
-    resetButton.className = 'flex items-center justify-center rounded-md h-10 px-6 bg-slate-500 text-white text-sm font-semibold shadow-sm hover:bg-slate-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 ml-4';
-    resetButton.addEventListener('click', resetOptions);
-    buttonContainer.appendChild(resetButton);
+  // Add reset button functionality
+  const resetButton = document.getElementById('reset-defaults');
+  if (resetButton) {
+    resetButton.addEventListener('click', () => {
+      resetOptions();
+      // Update previews after reset
+      setTimeout(() => {
+        updateAllPreviews();
+      }, 100);
+    });
   } else {
-    console.error("Button container not found for reset button");
+    console.error('Reset button not found');
   }
 });

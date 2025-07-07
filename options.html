@@ -54,24 +54,13 @@
     <div class="w-full max-w-7xl">
       <header class="mb-8 text-center">
         <div class="inline-flex items-center gap-3 mb-2">
-          <svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_6_319)">
-              <path
-                d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
-                fill="currentColor"></path>
-            </g>
-            <defs>
-              <clipPath id="clip0_6_319">
-                <rect fill="white" height="48" width="48"></rect>
-              </clipPath>
-            </defs>
-          </svg>
-          <h1 class="text-3xl font-bold text-slate-900">Better Notion Highlights</h1>
+          <img src="icons/icon-48.png" alt="Better Notion Highlights" class="h-12 w-12" />
+          <h1 class="text-4xl font-bold text-slate-900">Better Notion Highlights</h1>
         </div>
         <p class="text-slate-500">Customize your highlight colors for a better reading experience.</p>
       </header>
       <main>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-9 gap-6 my-8">
           <div
             class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center">
             <span class="font-semibold text-lg mb-4"
@@ -160,7 +149,7 @@
             </div>
           </div>
           <div
-            class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center mt-6">
+            class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center">
             <span class="font-semibold text-lg mb-4"
               style="color: #1d4ed8; background-color: #dbeafe; padding: 2px 8px; border-radius: 4px;">Blue</span>
             <div class="flex items-center space-x-4">
@@ -177,7 +166,7 @@
             </div>
           </div>
           <div
-            class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center mt-6">
+            class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center">
             <span class="font-semibold text-lg mb-4"
               style="color: #7e22ce; background-color: #f3e8ff; padding: 2px 8px; border-radius: 4px;">Purple</span>
             <div class="flex items-center space-x-4">
@@ -194,7 +183,7 @@
             </div>
           </div>
           <div
-            class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center mt-6">
+            class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center">
             <span class="font-semibold text-lg mb-4"
               style="color: #be185d; background-color: #fce7f3; padding: 2px 8px; border-radius: 4px;">Pink</span>
             <div class="flex items-center space-x-4">
@@ -211,7 +200,7 @@
             </div>
           </div>
           <div
-            class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center mt-6">
+            class="bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-4 flex flex-col items-center">
             <span class="font-semibold text-lg mb-4"
               style="color: #b91c1c; background-color: #fee2e2; padding: 2px 8px; border-radius: 4px;">Red</span>
             <div class="flex items-center space-x-4">
@@ -229,16 +218,22 @@
           </div>
           <div class="lg:col-span-1 xl:col-span-1"></div>
         </div>
+        <hr />
         <div class="flex justify-center mt-8">
           <button
             class="flex items-center justify-center rounded-md h-10 px-6 bg-[var(--primary-color)] text-white text-sm font-semibold shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             Save Changes
+          </button>
+          <button id="reset-defaults"
+            class="flex items-center justify-center rounded-md h-10 px-6 bg-slate-500 text-white text-sm font-semibold shadow-sm hover:bg-slate-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 ml-4">
+            Restore to Defaults
           </button>
         </div>
       </main>
     </div>
   </div>
 
+  <script src="options.js"></script>
 </body>
 
 </html>
