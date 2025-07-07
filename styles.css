@@ -1,0 +1,235 @@
+:root {
+  /* Gray theme */
+  --gray-highlight: #dcdcdc;
+  --gray-text: black;
+
+  /* Brown theme */
+  --brown-highlight: #986a33;
+  --brown-text: white;
+
+  /* Orange theme */
+  --orange-highlight: #ff9351;
+  --orange-text: black;
+
+  /* Yellow theme */
+  --yellow-highlight: #faff72;
+  --yellow-text: black;
+
+  /* Green theme */
+  --green-highlight: #74de2e;
+  --green-text: black;
+
+  /* Blue theme */
+  --blue-highlight: #3da5ff;
+  --blue-text: white;
+
+  /* Purple theme */
+  --purple-highlight: #bf51e2;
+  --purple-text: white;
+
+  /* Pink theme */
+  --pink-highlight: #ff74bc;
+  --pink-text: white;
+
+  /* Red theme */
+  --red-highlight: #ff3737;
+  --red-text: white;
+
+  /* Menu item typography */
+  --menu-font-size: 1.5rem;
+  --menu-font-weight: bold;
+}
+
+/* Gray theme */
+.notion-page-content *[style*='background:rgba(248, 248, 247, 1)'],
+.notion-page-content *[style*='background:rgba(47, 47, 47, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(248, 248, 247, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(47, 47, 47, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(248, 248, 247)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(47, 47, 47)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(248, 248, 247, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(47, 47, 47, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(248, 248, 247, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(47, 47, 47, 1)'],
+[role='menuitem'] div[style*='background: rgb(248, 248, 247)'],
+[role='menuitem'] div[style*='background: rgb(47, 47, 47)'] {
+  background: var(--gray-highlight) !important;
+  color: var(--gray-text) !important;
+}
+
+/* Brown theme */
+.notion-page-content *[style*='background:rgba(244, 238, 238, 1)'],
+.notion-page-content *[style*='background:rgba(74, 50, 40, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(244, 238, 238, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(74, 50, 40, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(244, 238, 238)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(74, 50, 40)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(244, 238, 238, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(74, 50, 40, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(244, 238, 238, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(74, 50, 40, 1)'],
+[role='menuitem'] div[style*='background: rgb(244, 238, 238)'],
+[role='menuitem'] div[style*='background: rgb(74, 50, 40)'] {
+  background: var(--brown-highlight) !important;
+  color: var(--brown-text) !important;
+}
+
+/* Orange theme */
+.notion-page-content *[style*='background:rgba(251, 236, 221, 1)'],
+.notion-page-content *[style*='background:rgba(92, 59, 35, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(251, 236, 221, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(92, 59, 35, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(251, 236, 221)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(92, 59, 35)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(251, 236, 221, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(92, 59, 35, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(251, 236, 221, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(92, 59, 35, 1)'],
+[role='menuitem'] div[style*='background: rgb(251, 236, 221)'],
+[role='menuitem'] div[style*='background: rgb(92, 59, 35)'] {
+  background: var(--orange-highlight) !important;
+  color: var(--orange-text) !important;
+}
+
+/* Yellow theme */
+.notion-page-content *[style*='background:rgba(251, 243, 219, 1)'],
+.notion-page-content *[style*='background:rgba(86, 67, 40, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(251, 243, 219, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(86, 67, 40, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(251, 243, 219)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(86, 67, 40)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(251, 243, 219, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(86, 67, 40, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(251, 243, 219, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(86, 67, 40, 1)'],
+[role='menuitem'] div[style*='background: rgb(251, 243, 219)'],
+[role='menuitem'] div[style*='background: rgb(86, 67, 40)'] {
+  background: var(--yellow-highlight) !important;
+  color: var(--yellow-text) !important;
+}
+
+/* Green theme */
+.notion-page-content *[style*='background:rgba(237, 243, 236, 1)'],
+.notion-page-content *[style*='background:rgba(36, 61, 48, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(237, 243, 236, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(36, 61, 48, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(237, 243, 236)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(36, 61, 48)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(237, 243, 236, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(36, 61, 48, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(237, 243, 236, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(36, 61, 48, 1)'],
+[role='menuitem'] div[style*='background: rgb(237, 243, 236)'],
+[role='menuitem'] div[style*='background: rgb(36, 61, 48)'] {
+  background: var(--green-highlight) !important;
+  color: var(--green-text) !important;
+}
+
+/* Blue theme */
+.notion-page-content *[style*='background:rgba(231, 243, 248, 1)'],
+.notion-page-content *[style*='background:rgba(20, 58, 78, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(231, 243, 248, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(20, 58, 78, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(231, 243, 248)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(20, 58, 78)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(231, 243, 248, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(20, 58, 78, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(231, 243, 248, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(20, 58, 78, 1)'],
+[role='menuitem'] div[style*='background: rgb(231, 243, 248)'],
+[role='menuitem'] div[style*='background: rgb(20, 58, 78)'] {
+  background: var(--blue-highlight) !important;
+  color: var(--blue-text) !important;
+}
+
+/* Purple theme */
+.notion-page-content *[style*='background:rgba(248, 243, 252, 1)'],
+.notion-page-content *[style*='background:rgba(60, 45, 73, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(248, 243, 252, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(60, 45, 73, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(248, 243, 252)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(60, 45, 73)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(248, 243, 252, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(60, 45, 73, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(248, 243, 252, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(60, 45, 73, 1)'],
+[role='menuitem'] div[style*='background: rgb(248, 243, 252)'],
+[role='menuitem'] div[style*='background: rgb(60, 45, 73)'] {
+  background: var(--purple-highlight) !important;
+  color: var(--purple-text) !important;
+}
+
+/* Pink theme */
+.notion-page-content *[style*='background:rgba(252, 241, 246, 1)'],
+.notion-page-content *[style*='background:rgba(78, 44, 60, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(252, 241, 246, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(78, 44, 60, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(252, 241, 246)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(78, 44, 60)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(252, 241, 246, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(78, 44, 60, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(252, 241, 246, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(78, 44, 60, 1)'],
+[role='menuitem'] div[style*='background: rgb(252, 241, 246)'],
+[role='menuitem'] div[style*='background: rgb(78, 44, 60)'] {
+  background: var(--pink-highlight) !important;
+  color: var(--pink-text) !important;
+}
+
+/* Red theme */
+.notion-page-content *[style*='background:rgba(253, 235, 236, 1)'],
+.notion-page-content *[style*='background:rgba(82, 46, 42, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(253, 235, 236, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(82, 46, 42, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(253, 235, 236)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(82, 46, 42)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(253, 235, 236, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(82, 46, 42, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(253, 235, 236, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(82, 46, 42, 1)'],
+[role='menuitem'] div[style*='background: rgb(253, 235, 236)'],
+[role='menuitem'] div[style*='background: rgb(82, 46, 42)'] {
+  background: var(--red-highlight) !important;
+  color: var(--red-text) !important;
+}
+
+/* Enhanced font styling for all menu items */
+[role='menuitem'] div[style*='background: rgb(248, 248, 247)'],
+[role='menuitem'] div[style*='background: rgb(47, 47, 47)'],
+[role='menuitem'] div[style*='background: rgb(244, 238, 238)'],
+[role='menuitem'] div[style*='background: rgb(74, 50, 40)'],
+[role='menuitem'] div[style*='background: rgb(251, 236, 221)'],
+[role='menuitem'] div[style*='background: rgb(92, 59, 35)'],
+[role='menuitem'] div[style*='background: rgb(251, 243, 219)'],
+[role='menuitem'] div[style*='background: rgb(86, 67, 40)'],
+[role='menuitem'] div[style*='background: rgb(237, 243, 236)'],
+[role='menuitem'] div[style*='background: rgb(36, 61, 48)'],
+[role='menuitem'] div[style*='background: rgb(231, 243, 248)'],
+[role='menuitem'] div[style*='background: rgb(20, 58, 78)'],
+[role='menuitem'] div[style*='background: rgb(248, 243, 252)'],
+[role='menuitem'] div[style*='background: rgb(60, 45, 73)'],
+[role='menuitem'] div[style*='background: rgb(252, 241, 246)'],
+[role='menuitem'] div[style*='background: rgb(78, 44, 60)'],
+[role='menuitem'] div[style*='background: rgb(253, 235, 236)'],
+[role='menuitem'] div[style*='background: rgb(82, 46, 42)'] {
+  font-size: var(--menu-font-size) !important;
+  font-weight: var(--menu-font-weight) !important;
+}
