@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Better Notion Highlights - Options</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <script src="libs/tailwindcss.3.4.16_forms.0.5.9_container-queries.0.1.1.js"></script>
+  <script>
+    // Apply system theme immediately to prevent flash
+    (function () {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', systemTheme);
+    })();
+  </script>
+  <style type="text/tailwindcss">
+    :root {
+        --primary-color: #0c7ff2;
+        --background-color: #f8fafc;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --border-color: #e2e8f0;
+        --card-background: #ffffff;
+        --button-hover: #0369a1;
+        --status-success: #16a34a;
+        --status-warning: #ea580c;
+      }
+
+      [data-theme="dark"] {
+        --primary-color: #3b82f6;
+        --background-color: #0f172a;
+        --text-color: #f8fafc;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+        --card-background: #1e293b;
+        --button-hover: #2563eb;
+        --status-success: #22c55e;
+        --status-warning: #f97316;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+
+      .color-picker-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .color-picker-input {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 9999px;
+        border: 2px solid var(--border-color);
+        cursor: pointer;
+        padding: 0;
+        background-color: transparent;
+      }
+
+      .color-picker-input::-webkit-color-swatch-wrapper {
+        padding: 0;
+        border-radius: 9999px;
+      }
+
+      .color-picker-input::-webkit-color-swatch {
+        border: none;
+        border-radius: 9999px;
+      }
+
+
+
+      .card {
+        background-color: var(--card-background);
+        border-color: var(--border-color);
+      }
+
+      .text-muted {
+        color: var(--text-muted);
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--button-hover);
+      }
+
+      .btn-secondary {
+        background-color: #64748b;
+      }
+
+      .btn-secondary:hover {
+        background-color: #475569;
+      }
+
+      hr {
+        border-color: var(--border-color);
+      }
+    </style>
+</head>
+
+<body class="min-h-screen">
+  <div class="flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div class="w-full max-w-7xl">
+      <header class="mb-8 text-center">
+        <div class="inline-flex items-center gap-3 mb-2">
+          <img src="icons/icon-48.png" alt="Better Notion Highlights" class="h-12 w-12" />
+          <h1 class="text-4xl font-bold" style="color: var(--text-color);">Better Notion Highlights</h1>
+        </div>
+        <p class="text-muted">Customize your highlight colors for a better reading experience.</p>
+      </header>
+      <main>
+        <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-9 gap-6 my-8">
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #9ca3af; background-color: #e5e7eb; padding: 2px 8px; border-radius: 4px;">Gray</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="gray-bg">Bg</label>
+                <div class="color-picker-wrapper">
+                  <input class="color-picker-input" id="gray-bg" type="color" value="#e5e7eb" />
+                </div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="gray-text">Text</label>
+                <div class="color-picker-wrapper">
+                  <input class="color-picker-input" id="gray-text" type="color" value="#9ca3af" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #a16207; background-color: #fde68a; padding: 2px 8px; border-radius: 4px;">Brown</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="brown-bg">Bg</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="brown-bg" type="color"
+                    value="#fde68a" /></div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="brown-text">Text</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="brown-text" type="color"
+                    value="#a16207" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #c2410c; background-color: #ffedd5; padding: 2px 8px; border-radius: 4px;">Orange</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="orange-bg">Bg</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="orange-bg" type="color"
+                    value="#ffedd5" /></div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="orange-text">Text</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="orange-text" type="color"
+                    value="#c2410c" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #ca8a04; background-color: #fef9c3; padding: 2px 8px; border-radius: 4px;">Yellow</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="yellow-bg">Bg</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="yellow-bg" type="color"
+                    value="#fef9c3" /></div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="yellow-text">Text</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="yellow-text" type="color"
+                    value="#ca8a04" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #15803d; background-color: #dcfce7; padding: 2px 8px; border-radius: 4px;">Green</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="green-bg">Bg</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="green-bg" type="color"
+                    value="#dcfce7" /></div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="green-text">Text</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="green-text" type="color"
+                    value="#15803d" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #1d4ed8; background-color: #dbeafe; padding: 2px 8px; border-radius: 4px;">Blue</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="blue-bg">Bg</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="blue-bg" type="color"
+                    value="#dbeafe" /></div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="blue-text">Text</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="blue-text" type="color"
+                    value="#1d4ed8" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #7e22ce; background-color: #f3e8ff; padding: 2px 8px; border-radius: 4px;">Purple</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="purple-bg">Bg</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="purple-bg" type="color"
+                    value="#f3e8ff" /></div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="purple-text">Text</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="purple-text" type="color"
+                    value="#7e22ce" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #be185d; background-color: #fce7f3; padding: 2px 8px; border-radius: 4px;">Pink</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="pink-bg">Bg</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="pink-bg" type="color"
+                    value="#fce7f3" /></div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="pink-text">Text</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="pink-text" type="color"
+                    value="#be185d" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="card rounded-lg shadow-sm border p-4 flex flex-col items-center">
+            <span class="font-semibold text-lg mb-4"
+              style="color: #b91c1c; background-color: #fee2e2; padding: 2px 8px; border-radius: 4px;">Red</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="red-bg">Bg</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="red-bg" type="color"
+                    value="#fee2e2" /></div>
+              </div>
+              <div class="flex flex-col items-center">
+                <label class="text-sm font-medium text-muted mb-1" for="red-text">Text</label>
+                <div class="color-picker-wrapper"><input class="color-picker-input" id="red-text" type="color"
+                    value="#b91c1c" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-1 xl:col-span-1"></div>
+        </div>
+        <hr />
+        <div class="flex justify-center mt-8">
+          <button
+            class="btn-primary flex items-center justify-center rounded-md h-10 px-6 text-white text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            Save Changes
+          </button>
+          <button id="reset-defaults"
+            class="btn-secondary flex items-center justify-center rounded-md h-10 px-6 text-white text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 ml-4">
+            Restore to Defaults
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+
+</html>
