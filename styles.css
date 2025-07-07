@@ -1,93 +1,183 @@
-.notion-page-content *[style*="background:rgba(248, 248, 247, 1)"],
-.notion-page-content *[style*="background:rgba(47, 47, 47, 1)"],
-[role="menuitem"] div[style*="background: rgb(248, 248, 247)"],
-[role="menuitem"] div[style*="background: rgb(47, 47, 47)"] {
+.notion-page-content *[style*='background:rgba(248, 248, 247, 1)'],
+.notion-page-content *[style*='background:rgba(47, 47, 47, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(248, 248, 247, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(47, 47, 47, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(248, 248, 247)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(47, 47, 47)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(248, 248, 247, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(47, 47, 47, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(248, 248, 247, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(47, 47, 47, 1)'],
+[role='menuitem'] div[style*='background: rgb(248, 248, 247)'],
+[role='menuitem'] div[style*='background: rgb(47, 47, 47)'] {
   background: #dcdcdc !important;
   color: black !important;
 }
 
-.notion-page-content *[style*="background:rgba(244, 238, 238, 1)"],
-.notion-page-content *[style*="background:rgba(74, 50, 40, 1)"],
-[role="menuitem"] div[style*="background: rgb(244, 238, 238)"],
-[role="menuitem"] div[style*="background: rgb(74, 50, 40)"] {
+.notion-page-content *[style*='background:rgba(244, 238, 238, 1)'],
+.notion-page-content *[style*='background:rgba(74, 50, 40, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(244, 238, 238, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(74, 50, 40, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(244, 238, 238)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(74, 50, 40)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(244, 238, 238, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(74, 50, 40, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(244, 238, 238, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(74, 50, 40, 1)'],
+[role='menuitem'] div[style*='background: rgb(244, 238, 238)'],
+[role='menuitem'] div[style*='background: rgb(74, 50, 40)'] {
   background: #986a33 !important;
   color: white !important;
 }
 
-.notion-page-content *[style*="background:rgba(251, 236, 221, 1)"],
-.notion-page-content *[style*="background:rgba(92, 59, 35, 1)"],
-[role="menuitem"] div[style*="background: rgb(251, 236, 221)"],
-[role="menuitem"] div[style*="background: rgb(92, 59, 35)"] {
+.notion-page-content *[style*='background:rgba(251, 236, 221, 1)'],
+.notion-page-content *[style*='background:rgba(92, 59, 35, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(251, 236, 221, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(92, 59, 35, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(251, 236, 221)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(92, 59, 35)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(251, 236, 221, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(92, 59, 35, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(251, 236, 221, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(92, 59, 35, 1)'],
+[role='menuitem'] div[style*='background: rgb(251, 236, 221)'],
+[role='menuitem'] div[style*='background: rgb(92, 59, 35)'] {
   background: #ff9351 !important;
   color: black !important;
 }
 
-.notion-page-content *[style*="background:rgba(251, 243, 219, 1)"],
-.notion-page-content *[style*="background:rgba(86, 67, 40, 1)"],
-[role="menuitem"] div[style*="background: rgb(251, 243, 219)"],
-[role="menuitem"] div[style*="background: rgb(86, 67, 40)"] {
+.notion-page-content *[style*='background:rgba(251, 243, 219, 1)'],
+.notion-page-content *[style*='background:rgba(86, 67, 40, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(251, 243, 219, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(86, 67, 40, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(251, 243, 219)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(86, 67, 40)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(251, 243, 219, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(86, 67, 40, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(251, 243, 219, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(86, 67, 40, 1)'],
+[role='menuitem'] div[style*='background: rgb(251, 243, 219)'],
+[role='menuitem'] div[style*='background: rgb(86, 67, 40)'] {
   background: #ffe272 !important;
   color: black !important;
 }
 
-.notion-page-content *[style*="background:rgba(237, 243, 236, 1)"],
-.notion-page-content *[style*="background:rgba(36, 61, 48, 1)"],
-[role="menuitem"] div[style*="background: rgb(237, 243, 236)"],
-[role="menuitem"] div[style*="background: rgb(36, 61, 48)"] {
+.notion-page-content *[style*='background:rgba(237, 243, 236, 1)'],
+.notion-page-content *[style*='background:rgba(36, 61, 48, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(237, 243, 236, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(36, 61, 48, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(237, 243, 236)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(36, 61, 48)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(237, 243, 236, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(36, 61, 48, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(237, 243, 236, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(36, 61, 48, 1)'],
+[role='menuitem'] div[style*='background: rgb(237, 243, 236)'],
+[role='menuitem'] div[style*='background: rgb(36, 61, 48)'] {
   background: #74de2e !important;
   color: black !important;
 }
 
-.notion-page-content *[style*="background:rgba(231, 243, 248, 1)"],
-.notion-page-content *[style*="background:rgba(20, 58, 78, 1)"],
-[role="menuitem"] div[style*="background: rgb(231, 243, 248)"],
-[role="menuitem"] div[style*="background: rgb(20, 58, 78)"] {
+.notion-page-content *[style*='background:rgba(231, 243, 248, 1)'],
+.notion-page-content *[style*='background:rgba(20, 58, 78, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(231, 243, 248, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(20, 58, 78, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(231, 243, 248)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(20, 58, 78)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(231, 243, 248, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(20, 58, 78, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(231, 243, 248, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(20, 58, 78, 1)'],
+[role='menuitem'] div[style*='background: rgb(231, 243, 248)'],
+[role='menuitem'] div[style*='background: rgb(20, 58, 78)'] {
   background: #3da5ff !important;
   color: white !important;
 }
 
-.notion-page-content *[style*="background:rgba(248, 243, 252, 1)"],
-.notion-page-content *[style*="background:rgba(60, 45, 73, 1)"],
-[role="menuitem"] div[style*="background: rgb(248, 243, 252)"],
-[role="menuitem"] div[style*="background: rgb(60, 45, 73)"] {
+.notion-page-content *[style*='background:rgba(248, 243, 252, 1)'],
+.notion-page-content *[style*='background:rgba(60, 45, 73, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(248, 243, 252, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(60, 45, 73, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(248, 243, 252)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(60, 45, 73)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(248, 243, 252, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(60, 45, 73, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(248, 243, 252, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(60, 45, 73, 1)'],
+[role='menuitem'] div[style*='background: rgb(248, 243, 252)'],
+[role='menuitem'] div[style*='background: rgb(60, 45, 73)'] {
   background: #bf51e2 !important;
   color: white !important;
 }
 
-.notion-page-content *[style*="background:rgba(252, 241, 246, 1)"],
-.notion-page-content *[style*="background:rgba(78, 44, 60, 1)"],
-[role="menuitem"] div[style*="background: rgb(252, 241, 246)"],
-[role="menuitem"] div[style*="background: rgb(78, 44, 60)"] {
+.notion-page-content *[style*='background:rgba(252, 241, 246, 1)'],
+.notion-page-content *[style*='background:rgba(78, 44, 60, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(252, 241, 246, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(78, 44, 60, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(252, 241, 246)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(78, 44, 60)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(252, 241, 246, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(78, 44, 60, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(252, 241, 246, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(78, 44, 60, 1)'],
+[role='menuitem'] div[style*='background: rgb(252, 241, 246)'],
+[role='menuitem'] div[style*='background: rgb(78, 44, 60)'] {
   background: #ff74bc !important;
   color: white !important;
 }
 
-.notion-page-content *[style*="background:rgba(253, 235, 236, 1)"],
-.notion-page-content *[style*="background:rgba(82, 46, 42, 1)"],
-[role="menuitem"] div[style*="background: rgb(253, 235, 236)"],
-[role="menuitem"] div[style*="background: rgb(82, 46, 42)"] {
+.notion-page-content *[style*='background:rgba(253, 235, 236, 1)'],
+.notion-page-content *[style*='background:rgba(82, 46, 42, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(253, 235, 236, 1)'],
+.notion-page-view-discussion *[style*='background:rgba(82, 46, 42, 1)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(253, 235, 236)'],
+.notion-selectable.notion-page-block *[style*='background: rgb(82, 46, 42)'],
+.notion-selectable.notion-text-block
+  *[style*='background:rgba(253, 235, 236, 1)'],
+.notion-selectable.notion-text-block *[style*='background:rgba(82, 46, 42, 1)'],
+*[placeholder='Add a description…']
+  *[style*='background:rgba(253, 235, 236, 1)'],
+*[placeholder='Add a description…'] *[style*='background:rgba(82, 46, 42, 1)'],
+[role='menuitem'] div[style*='background: rgb(253, 235, 236)'],
+[role='menuitem'] div[style*='background: rgb(82, 46, 42)'] {
   background: #ff3737 !important;
   color: white !important;
 }
 
-[role="menuitem"] div[style*="background: rgb(248, 248, 247)"],
-[role="menuitem"] div[style*="background: rgb(47, 47, 47)"],
-[role="menuitem"] div[style*="background: rgb(244, 238, 238)"],
-[role="menuitem"] div[style*="background: rgb(74, 50, 40)"],
-[role="menuitem"] div[style*="background: rgb(251, 236, 221)"],
-[role="menuitem"] div[style*="background: rgb(92, 59, 35)"],
-[role="menuitem"] div[style*="background: rgb(251, 243, 219)"],
-[role="menuitem"] div[style*="background: rgb(86, 67, 40)"],
-[role="menuitem"] div[style*="background: rgb(237, 243, 236)"],
-[role="menuitem"] div[style*="background: rgb(36, 61, 48)"],
-[role="menuitem"] div[style*="background: rgb(231, 243, 248)"],
-[role="menuitem"] div[style*="background: rgb(20, 58, 78)"],
-[role="menuitem"] div[style*="background: rgb(248, 243, 252)"],
-[role="menuitem"] div[style*="background: rgb(60, 45, 73)"],
-[role="menuitem"] div[style*="background: rgb(252, 241, 246)"],
-[role="menuitem"] div[style*="background: rgb(78, 44, 60)"],
-[role="menuitem"] div[style*="background: rgb(253, 235, 236)"],
-[role="menuitem"] div[style*="background: rgb(82, 46, 42)"] {
+[role='menuitem'] div[style*='background: rgb(248, 248, 247)'],
+[role='menuitem'] div[style*='background: rgb(47, 47, 47)'],
+[role='menuitem'] div[style*='background: rgb(244, 238, 238)'],
+[role='menuitem'] div[style*='background: rgb(74, 50, 40)'],
+[role='menuitem'] div[style*='background: rgb(251, 236, 221)'],
+[role='menuitem'] div[style*='background: rgb(92, 59, 35)'],
+[role='menuitem'] div[style*='background: rgb(251, 243, 219)'],
+[role='menuitem'] div[style*='background: rgb(86, 67, 40)'],
+[role='menuitem'] div[style*='background: rgb(237, 243, 236)'],
+[role='menuitem'] div[style*='background: rgb(36, 61, 48)'],
+[role='menuitem'] div[style*='background: rgb(231, 243, 248)'],
+[role='menuitem'] div[style*='background: rgb(20, 58, 78)'],
+[role='menuitem'] div[style*='background: rgb(248, 243, 252)'],
+[role='menuitem'] div[style*='background: rgb(60, 45, 73)'],
+[role='menuitem'] div[style*='background: rgb(252, 241, 246)'],
+[role='menuitem'] div[style*='background: rgb(78, 44, 60)'],
+[role='menuitem'] div[style*='background: rgb(253, 235, 236)'],
+[role='menuitem'] div[style*='background: rgb(82, 46, 42)'] {
   font-size: 1.5rem !important;
   font-weight: bold !important;
 }
