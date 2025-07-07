@@ -61,12 +61,26 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  display: block;
-  margin: 20px auto 0;
+  display: block; /* Kept for individual buttons if not in a group */
+  margin: 0 5px; /* Spacing between buttons in a group */
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 button:hover {
   background-color: #0056b3;
+}
+
+button.secondary {
+  background-color: #6c757d;
+}
+
+button.secondary:hover {
+  background-color: #545b62;
 }
 
 .status {
