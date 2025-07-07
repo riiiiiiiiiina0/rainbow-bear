@@ -23,6 +23,27 @@ const themes = [
   'red',
 ];
 
+// Dark mode functionality
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+}
+
+function loadTheme() {
+  const systemTheme = getSystemTheme();
+  setTheme(systemTheme);
+}
+
+function handleSystemThemeChange(e) {
+  const systemTheme = e.matches ? 'dark' : 'light';
+  setTheme(systemTheme);
+}
+
 function populateInputs(colorsToLoad) {
   themes.forEach((theme) => {
     const bgInput = document.getElementById(`${theme}-bg`);
@@ -89,7 +110,7 @@ function saveOptions() {
       }
     }
     status.textContent = 'Settings saved.';
-    status.style.color = 'green';
+    status.style.color = 'var(--status-success)';
     setTimeout(() => {
       status.textContent = '';
     }, 2000);
@@ -121,7 +142,7 @@ function resetOptions() {
       }
     }
     status.textContent = 'Colors reset to defaults and saved.';
-    status.style.color = 'orange';
+    status.style.color = 'var(--status-warning)';
     setTimeout(() => {
       status.textContent = '';
     }, 3000);
@@ -143,9 +164,7 @@ function updatePreview(theme) {
     const textColor = textInput.value;
 
     // Find the preview span by looking for the input's parent container and finding the span within it
-    const container = bgInput.closest(
-      'div.bg-\\[var\\(--card-background\\)\\]',
-    );
+    const container = bgInput.closest('.card');
     const previewSpan = container
       ? container.querySelector('span.font-semibold')
       : null;
@@ -180,6 +199,10 @@ function addColorInputListeners() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Load theme first
+  loadTheme();
+
+  // Load color options
   loadOptions();
 
   // Add event listeners for live preview updates
@@ -189,6 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     updateAllPreviews();
   }, 100);
+
+  // Listen for system theme changes
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  mediaQuery.addEventListener('change', handleSystemThemeChange);
 
   // The save button in the new template is the first button in the main section
   const saveButton = document.querySelector('main button');
