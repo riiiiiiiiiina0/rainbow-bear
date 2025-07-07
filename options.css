@@ -61,7 +61,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  display: block; /* Kept for individual buttons if not in a group */
+  /* display: block; Removed to allow flex layout in button-group */
   margin: 0 5px; /* Spacing between buttons in a group */
 }
 
