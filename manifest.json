@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Notion Highlighter",
+  "version": "1.0",
+  "description": "Enhances Notion page highlights.",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.notion.so/*"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}
