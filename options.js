@@ -1,14 +1,14 @@
 // Default color values from styles.css (original values)
-const defaultColors = {
-  gray: { highlight: '#dcdcdc', text: '#000000' },
-  brown: { highlight: '#986a33', text: '#ffffff' },
-  orange: { highlight: '#ff9351', text: '#000000' },
-  yellow: { highlight: '#faff72', text: '#000000' },
-  green: { highlight: '#74de2e', text: '#000000' },
-  blue: { highlight: '#3da5ff', text: '#ffffff' },
-  purple: { highlight: '#bf51e2', text: '#ffffff' },
-  pink: { highlight: '#ff74bc', text: '#ffffff' },
-  red: { highlight: '#ff3737', text: '#ffffff' },
+const defaultSettings = {
+  gray: { highlight: '#dcdcdc', text: '#000000', pattern: 'none', animation: 'none' },
+  brown: { highlight: '#986a33', text: '#ffffff', pattern: 'none', animation: 'none' },
+  orange: { highlight: '#ff9351', text: '#000000', pattern: 'none', animation: 'none' },
+  yellow: { highlight: '#faff72', text: '#000000', pattern: 'none', animation: 'none' },
+  green: { highlight: '#74de2e', text: '#000000', pattern: 'none', animation: 'none' },
+  blue: { highlight: '#3da5ff', text: '#ffffff', pattern: 'none', animation: 'none' },
+  purple: { highlight: '#bf51e2', text: '#ffffff', pattern: 'none', animation: 'none' },
+  pink: { highlight: '#ff74bc', text: '#ffffff', pattern: 'none', animation: 'none' },
+  red: { highlight: '#ff3737', text: '#ffffff', pattern: 'none', animation: 'none' },
 };
 
 const themes = [
@@ -44,16 +44,25 @@ function handleSystemThemeChange(e) {
   setTheme(systemTheme);
 }
 
-function populateInputs(colorsToLoad) {
+function populateInputs(settingsToLoad) {
   themes.forEach((theme) => {
     const bgInput = document.getElementById(`${theme}-bg`);
     const textInput = document.getElementById(`${theme}-text`);
+    const patternInput = document.getElementById(`${theme}-pattern`);
+    const animationInput = document.getElementById(`${theme}-animation`);
+
     if (bgInput && bgInput instanceof HTMLInputElement) {
       bgInput.value =
-        colorsToLoad[theme]?.highlight || defaultColors[theme].highlight;
+        settingsToLoad[theme]?.highlight || defaultSettings[theme].highlight;
     }
     if (textInput && textInput instanceof HTMLInputElement) {
-      textInput.value = colorsToLoad[theme]?.text || defaultColors[theme].text;
+      textInput.value = settingsToLoad[theme]?.text || defaultSettings[theme].text;
+    }
+    if (patternInput && patternInput instanceof HTMLSelectElement) {
+      patternInput.value = settingsToLoad[theme]?.pattern || defaultSettings[theme].pattern;
+    }
+    if (animationInput && animationInput instanceof HTMLSelectElement) {
+      animationInput.value = settingsToLoad[theme]?.animation || defaultSettings[theme].animation;
     }
   });
 }
@@ -61,10 +70,10 @@ function populateInputs(colorsToLoad) {
 // Load saved settings or defaults
 function loadOptions() {
   chrome.storage.sync.get(
-    ['highlightColors', 'animatedHighlightsEnabled', 'colorBlindModeEnabled'],
+    ['highlightSettings', 'animatedHighlightsEnabled', 'colorBlindModeEnabled'],
     (data) => {
-      const colors = data.highlightColors || defaultColors;
-      populateInputs(colors);
+      const settings = data.highlightSettings || defaultSettings;
+      populateInputs(settings);
 
       const animatedHighlightsEnabled =
         data.animatedHighlightsEnabled === undefined
@@ -107,7 +116,7 @@ function loadOptions() {
 
 // Reset settings to defaults
 function resetOptions() {
-  populateInputs(defaultColors);
+  populateInputs(defaultSettings);
   // Also reset the animation toggle and color blind mode toggle to their defaults (false)
   const animatedToggle = document.getElementById('animated-highlights-toggle');
   if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
@@ -123,10 +132,10 @@ function resetOptions() {
   disableAnimationPreviews();
   disableColorBlindPatterns();
 
-  // Save all settings including colors
+  // Save all settings including colors, patterns, and animations
   chrome.storage.sync.set(
     {
-      highlightColors: defaultColors,
+      highlightSettings: defaultSettings,
       animatedHighlightsEnabled: false,
       colorBlindModeEnabled: false,
     },
@@ -140,15 +149,23 @@ function resetOptions() {
 function updatePreview(theme) {
   const bgInput = document.getElementById(`${theme}-bg`);
   const textInput = document.getElementById(`${theme}-text`);
+  const patternInput = document.getElementById(`${theme}-pattern`);
+  const animationInput = document.getElementById(`${theme}-animation`);
 
   if (
     bgInput &&
     bgInput instanceof HTMLInputElement &&
     textInput &&
-    textInput instanceof HTMLInputElement
+    textInput instanceof HTMLInputElement &&
+    patternInput &&
+    patternInput instanceof HTMLSelectElement &&
+    animationInput &&
+    animationInput instanceof HTMLSelectElement
   ) {
     const bgColor = bgInput.value;
     const textColor = textInput.value;
+    const pattern = patternInput.value;
+    const animation = animationInput.value;
 
     // Find the preview span by looking for the input's parent container and finding the span within it
     const container = bgInput.closest('.card');
@@ -159,6 +176,18 @@ function updatePreview(theme) {
     if (previewSpan && previewSpan instanceof HTMLElement) {
       previewSpan.style.backgroundColor = bgColor;
       previewSpan.style.color = textColor;
+
+      // Remove existing pattern and animation classes
+      previewSpan.className = previewSpan.className.replace(/\bpattern-\S+/g, '');
+      previewSpan.className = previewSpan.className.replace(/\banimation-\S+/g, '');
+
+      // Add new pattern and animation classes if they are not 'none'
+      if (pattern !== 'none') {
+        previewSpan.classList.add(`pattern-${pattern}`);
+      }
+      if (animation !== 'none') {
+        previewSpan.classList.add(`animation-${animation}`);
+      }
     }
   }
 }
@@ -210,47 +239,60 @@ function disableAnimationPreviews() {
   });
 }
 
-// Function to save colors automatically
-function saveColors() {
-  const newColors = {};
+// Function to save settings automatically
+function saveSettings() {
+  const newSettings = {};
   themes.forEach((theme) => {
     const bgInput = document.getElementById(`${theme}-bg`);
     const textInput = document.getElementById(`${theme}-text`);
+    const patternInput = document.getElementById(`${theme}-pattern`);
+    const animationInput = document.getElementById(`${theme}-animation`);
+
     if (
-      bgInput &&
       bgInput instanceof HTMLInputElement &&
-      textInput &&
-      textInput instanceof HTMLInputElement
+      textInput instanceof HTMLInputElement &&
+      patternInput instanceof HTMLSelectElement &&
+      animationInput instanceof HTMLSelectElement
     ) {
-      newColors[theme] = {
+      newSettings[theme] = {
         highlight: bgInput.value,
         text: textInput.value,
+        pattern: patternInput.value,
+        animation: animationInput.value,
       };
     }
   });
 
-  chrome.storage.sync.set({ highlightColors: newColors }, () => {
-    // Colors saved automatically, no status message needed
+  chrome.storage.sync.set({ highlightSettings: newSettings }, () => {
+    // Settings saved automatically, no status message needed
   });
 }
 
-// Function to update preview and save colors
+// Function to update preview and save settings
 function updatePreviewAndSave(theme) {
   updatePreview(theme);
-  saveColors();
+  saveSettings();
 }
 
-// Function to add event listeners to color inputs
-function addColorInputListeners() {
+// Function to add event listeners to inputs
+function addSettingInputListeners() {
   themes.forEach((theme) => {
     const bgInput = document.getElementById(`${theme}-bg`);
     const textInput = document.getElementById(`${theme}-text`);
+    const patternInput = document.getElementById(`${theme}-pattern`);
+    const animationInput = document.getElementById(`${theme}-animation`);
 
-    if (bgInput && bgInput instanceof HTMLInputElement) {
+    if (bgInput instanceof HTMLInputElement) {
       bgInput.addEventListener('input', () => updatePreviewAndSave(theme));
     }
-    if (textInput && textInput instanceof HTMLInputElement) {
+    if (textInput instanceof HTMLInputElement) {
       textInput.addEventListener('input', () => updatePreviewAndSave(theme));
+    }
+    if (patternInput instanceof HTMLSelectElement) {
+      patternInput.addEventListener('change', () => updatePreviewAndSave(theme));
+    }
+    if (animationInput instanceof HTMLSelectElement) {
+      animationInput.addEventListener('change', () => updatePreviewAndSave(theme));
     }
   });
 }
@@ -259,11 +301,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load theme first
   loadTheme();
 
-  // Load color options
+  // Load settings
   loadOptions();
 
   // Add event listeners for live preview updates
-  addColorInputListeners();
+  addSettingInputListeners();
 
   // Update previews initially
   setTimeout(() => {

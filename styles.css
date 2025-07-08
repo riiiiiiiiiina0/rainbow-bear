@@ -40,24 +40,70 @@
   --menu-font-weight: bold;
 }
 
+/* --- Patterns --- */
+.pattern-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.1),
+    rgba(0,0,0,0.1) 10px,
+    transparent 10px,
+    transparent 20px
+  ) !important;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(
+    rgba(0,0,0,0.1) 2px,
+    transparent 2px
+  ) !important;
+  background-size: 10px 10px !important;
+}
+
+.pattern-diagonal-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(0,0,0,0.1),
+    rgba(0,0,0,0.1) 5px,
+    transparent 5px,
+    transparent 10px
+  ) !important;
+}
+
+.pattern-chevrons {
+  background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%),
+                    linear-gradient(-45deg, rgba(0,0,0,0.1) 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.1) 75%),
+                    linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.1) 75%) !important;
+  background-size: 10px 10px !important;
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0px !important;
+}
+
+
 /* --- Animations --- */
 
-@keyframes subtlePulse {
+@keyframes animation-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
 }
 
-@keyframes colorCycle {
+@keyframes animation-color-cycle {
   0%, 100% { filter: brightness(100%); }
   25% { filter: brightness(110%) saturate(120%); }
   50% { filter: brightness(90%) saturate(80%); }
   75% { filter: brightness(105%) saturate(110%); }
 }
 
-@keyframes gentleGlow {
+@keyframes animation-glow {
   0%, 100% { box-shadow: 0 0 5px 0px transparent; }
   50% { box-shadow: 0 0 10px 3px var(--current-highlight-glow, rgba(255,255,255,0.5)); } /* Glow color can be theme-specific */
 }
+
+@keyframes animation-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
 
 /* Gray theme */
 .notion-page-content *[style*='background:rgba(248, 248, 247, 1)'],
@@ -86,32 +132,32 @@
 .animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(47, 47, 47)'],
 .animated-highlights-active .notion-selectable.notion-text-block
   *[style*='background:rgba(248, 248, 247, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(47, 47, 47, 1)'],
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(47, 47, 47, 1)'].animation-pulse,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(248, 248, 247, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(47, 47, 47, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(248, 248, 247)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(47, 47, 47)'] {
-  animation: subtlePulse 2s infinite ease-in-out;
+  *[style*='background:rgba(248, 248, 247, 1)'].animation-pulse,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(47, 47, 47, 1)'].animation-pulse,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(248, 248, 247)'].animation-pulse,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(47, 47, 47)'].animation-pulse {
+  animation: animation-pulse 2s infinite ease-in-out;
 }
 
 
 /* Brown theme */
-.animated-highlights-active .notion-page-content *[style*='background:rgba(244, 238, 238, 1)'],
-.animated-highlights-active .notion-page-content *[style*='background:rgba(74, 50, 40, 1)'],
-.animated-highlights-active .notion-page-view-discussion *[style*='background:rgba(244, 238, 238, 1)'],
-.animated-highlights-active .notion-page-view-discussion *[style*='background:rgba(74, 50, 40, 1)'],
-.animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(244, 238, 238)'],
-.animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(74, 50, 40)'],
+.animated-highlights-active .notion-page-content *[style*='background:rgba(244, 238, 238, 1)'].animation-color-cycle,
+.animated-highlights-active .notion-page-content *[style*='background:rgba(74, 50, 40, 1)'].animation-color-cycle,
+.animated-highlights-active .notion-page-view-discussion *[style*='background:rgba(244, 238, 238, 1)'].animation-color-cycle,
+.animated-highlights-active .notion-page-view-discussion *[style*='background:rgba(74, 50, 40, 1)'].animation-color-cycle,
+.animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(244, 238, 238)'].animation-color-cycle,
+.animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(74, 50, 40)'].animation-color-cycle,
 .animated-highlights-active .notion-selectable.notion-text-block
-  *[style*='background:rgba(244, 238, 238, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(74, 50, 40, 1)'],
+  *[style*='background:rgba(244, 238, 238, 1)'].animation-color-cycle,
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(74, 50, 40, 1)'].animation-color-cycle,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(244, 238, 238, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(74, 50, 40, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(244, 238, 238)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(74, 50, 40)'] {
-  animation: colorCycle 3s infinite linear;
+  *[style*='background:rgba(244, 238, 238, 1)'].animation-color-cycle,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(74, 50, 40, 1)'].animation-color-cycle,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(244, 238, 238)'].animation-color-cycle,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(74, 50, 40)'].animation-color-cycle {
+  animation: animation-color-cycle 3s infinite linear;
 }
 
 .notion-page-content *[style*='background:rgba(244, 238, 238, 1)'],
@@ -160,13 +206,13 @@
 .animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(92, 59, 35)'],
 .animated-highlights-active .notion-selectable.notion-text-block
   *[style*='background:rgba(251, 236, 221, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(92, 59, 35, 1)'],
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(92, 59, 35, 1)'].animation-glow,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(251, 236, 221, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(92, 59, 35, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(251, 236, 221)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(92, 59, 35)'] {
-  animation: gentleGlow 2.2s infinite alternate;
+  *[style*='background:rgba(251, 236, 221, 1)'].animation-glow,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(92, 59, 35, 1)'].animation-glow,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(251, 236, 221)'].animation-glow,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(92, 59, 35)'].animation-glow {
+  animation: animation-glow 2.2s infinite alternate;
 }
 
 /* Yellow theme */
@@ -196,13 +242,13 @@
 .animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(86, 67, 40)'],
 .animated-highlights-active .notion-selectable.notion-text-block
   *[style*='background:rgba(251, 243, 219, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(86, 67, 40, 1)'],
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(86, 67, 40, 1)'].animation-pulse,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(251, 243, 219, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(86, 67, 40, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(251, 243, 219)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(86, 67, 40)'] {
-  animation: subtlePulse 2.5s infinite ease-in-out;
+  *[style*='background:rgba(251, 243, 219, 1)'].animation-pulse,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(86, 67, 40, 1)'].animation-pulse,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(251, 243, 219)'].animation-pulse,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(86, 67, 40)'].animation-pulse {
+  animation: animation-pulse 2.5s infinite ease-in-out;
 }
 
 /* Green theme */
@@ -232,13 +278,13 @@
 .animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(36, 61, 48)'],
 .animated-highlights-active .notion-selectable.notion-text-block
   *[style*='background:rgba(237, 243, 236, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(36, 61, 48, 1)'],
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(36, 61, 48, 1)'].animation-color-cycle,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(237, 243, 236, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(36, 61, 48, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(237, 243, 236)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(36, 61, 48)'] {
-  animation: colorCycle 3.5s infinite linear;
+  *[style*='background:rgba(237, 243, 236, 1)'].animation-color-cycle,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(36, 61, 48, 1)'].animation-color-cycle,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(237, 243, 236)'].animation-color-cycle,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(36, 61, 48)'].animation-color-cycle {
+  animation: animation-color-cycle 3.5s infinite linear;
 }
 
 /* Blue theme */
@@ -269,13 +315,13 @@
 .animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(20, 58, 78)'],
 .animated-highlights-active .notion-selectable.notion-text-block
   *[style*='background:rgba(231, 243, 248, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(20, 58, 78, 1)'],
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(20, 58, 78, 1)'].animation-glow,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(231, 243, 248, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(20, 58, 78, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(231, 243, 248)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(20, 58, 78)'] {
-  animation: gentleGlow 2.5s infinite alternate;
+  *[style*='background:rgba(231, 243, 248, 1)'].animation-glow,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(20, 58, 78, 1)'].animation-glow,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(231, 243, 248)'].animation-glow,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(20, 58, 78)'].animation-glow {
+  animation: animation-glow 2.5s infinite alternate;
 }
 
 /* Purple theme */
@@ -305,13 +351,13 @@
 .animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(60, 45, 73)'],
 .animated-highlights-active .notion-selectable.notion-text-block
   *[style*='background:rgba(248, 243, 252, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(60, 45, 73, 1)'],
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(60, 45, 73, 1)'].animation-pulse,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(248, 243, 252, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(60, 45, 73, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(248, 243, 252)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(60, 45, 73)'] {
-  animation: subtlePulse 1.8s infinite ease-in-out;
+  *[style*='background:rgba(248, 243, 252, 1)'].animation-pulse,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(60, 45, 73, 1)'].animation-pulse,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(248, 243, 252)'].animation-pulse,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(60, 45, 73)'].animation-pulse {
+  animation: animation-pulse 1.8s infinite ease-in-out;
 }
 
 /* Pink theme */
@@ -342,13 +388,13 @@
 .animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(78, 44, 60)'],
 .animated-highlights-active .notion-selectable.notion-text-block
   *[style*='background:rgba(252, 241, 246, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(78, 44, 60, 1)'],
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(78, 44, 60, 1)'].animation-glow,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(252, 241, 246, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(78, 44, 60, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(252, 241, 246)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(78, 44, 60)'] {
-  animation: gentleGlow 2.8s infinite alternate;
+  *[style*='background:rgba(252, 241, 246, 1)'].animation-glow,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(78, 44, 60, 1)'].animation-glow,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(252, 241, 246)'].animation-glow,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(78, 44, 60)'].animation-glow {
+  animation: animation-glow 2.8s infinite alternate;
 }
 
 /* Red theme */
@@ -378,14 +424,21 @@
 .animated-highlights-active .notion-selectable.notion-page-block *[style*='background: rgb(82, 46, 42)'],
 .animated-highlights-active .notion-selectable.notion-text-block
   *[style*='background:rgba(253, 235, 236, 1)'],
-.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(82, 46, 42, 1)'],
+.animated-highlights-active .notion-selectable.notion-text-block *[style*='background:rgba(82, 46, 42, 1)'].animation-color-cycle,
 .animated-highlights-active *[placeholder='Add a description…']
-  *[style*='background:rgba(253, 235, 236, 1)'],
-.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(82, 46, 42, 1)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(253, 235, 236)'],
-.animated-highlights-active [role='menuitem'] div[style*='background: rgb(82, 46, 42)'] {
-  animation: colorCycle 2.8s infinite linear;
+  *[style*='background:rgba(253, 235, 236, 1)'].animation-color-cycle,
+.animated-highlights-active *[placeholder='Add a description…'] *[style*='background:rgba(82, 46, 42, 1)'].animation-color-cycle,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(253, 235, 236)'].animation-color-cycle,
+.animated-highlights-active [role='menuitem'] div[style*='background: rgb(82, 46, 42)'].animation-color-cycle {
+  animation: animation-color-cycle 2.8s infinite linear;
 }
+
+/* Generic animation selectors */
+.animation-pulse { animation-name: animation-pulse !important; animation-duration: 2s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+.animation-glow { animation-name: animation-glow !important; animation-duration: 2.2s; animation-iteration-count: infinite; animation-direction: alternate; }
+.animation-color-cycle { animation-name: animation-color-cycle !important; animation-duration: 3s; animation-iteration-count: infinite; animation-timing-function: linear; }
+.animation-shake { animation-name: animation-shake !important; animation-duration: 0.5s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+
 
 /* Enhanced font styling for all menu items */
 [role='menuitem'] div[style*='background: rgb(248, 248, 247)'],
