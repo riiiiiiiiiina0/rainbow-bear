@@ -105,74 +105,6 @@ function loadOptions() {
   );
 }
 
-// Save settings
-function saveOptions() {
-  const newColors = {};
-  themes.forEach((theme) => {
-    const bgInput = document.getElementById(`${theme}-bg`);
-    const textInput = document.getElementById(`${theme}-text`);
-    if (
-      bgInput &&
-      bgInput instanceof HTMLInputElement &&
-      textInput &&
-      textInput instanceof HTMLInputElement
-    ) {
-      newColors[theme] = {
-        highlight: bgInput.value,
-        text: textInput.value,
-      };
-    }
-  });
-
-  const animatedToggle = document.getElementById('animated-highlights-toggle');
-  const animatedHighlightsEnabled =
-    animatedToggle instanceof HTMLInputElement ? animatedToggle.checked : false;
-
-  const colorBlindToggle = document.getElementById('color-blind-mode-toggle');
-  const colorBlindModeEnabled =
-    colorBlindToggle instanceof HTMLInputElement
-      ? colorBlindToggle.checked
-      : false;
-
-  chrome.storage.sync.set(
-    {
-      highlightColors: newColors,
-      animatedHighlightsEnabled: animatedHighlightsEnabled,
-      colorBlindModeEnabled: colorBlindModeEnabled,
-    },
-    () => {
-      // Add a status message element if it doesn't exist
-      let status = document.getElementById('status-message');
-      if (!status) {
-        status = document.createElement('p');
-        status.id = 'status-message';
-        status.className = 'text-center mt-4 text-sm font-medium';
-        // Insert status message after the save button container
-        const saveButtonContainer = document.querySelector(
-          '.flex.justify-center.mt-8',
-        );
-        if (saveButtonContainer && saveButtonContainer.parentNode) {
-          saveButtonContainer.parentNode.insertBefore(
-            status,
-            saveButtonContainer.nextSibling,
-          );
-        } else {
-          // Fallback if the specific container isn't found
-          const mainElement = document.querySelector('main');
-          if (mainElement) {
-            mainElement.appendChild(status);
-          }
-        }
-      }
-      status.textContent = 'Settings saved.';
-      status.style.color = 'var(--status-success)';
-      setTimeout(() => {
-        status.textContent = '';
-      }, 2000);
-    },
-  );
-}
-
 // Reset settings to defaults
 function resetOptions() {
   populateInputs(defaultColors);
@@ -191,6 +123,7 @@ function resetOptions() {
   disableAnimationPreviews();
   disableColorBlindPatterns();
 
+  // Save all settings including colors
   chrome.storage.sync.set(
     {
       highlightColors: defaultColors,
@@ -198,31 +131,7 @@ function resetOptions() {
       colorBlindModeEnabled: false,
     },
     () => {
-      let status = document.getElementById('status-message');
-      if (!status) {
-        status = document.createElement('p');
-        status.id = 'status-message';
-        status.className = 'text-center mt-4 text-sm font-medium';
-        const saveButtonContainer = document.querySelector(
-          '.flex.justify-center.mt-8',
-        );
-        if (saveButtonContainer && saveButtonContainer.parentNode) {
-          saveButtonContainer.parentNode.insertBefore(
-            status,
-            saveButtonContainer.nextSibling,
-          );
-        } else {
-          const mainElement = document.querySelector('main');
-          if (mainElement) {
-            mainElement.appendChild(status);
-          }
-        }
-      }
-      status.textContent = 'Colors reset to defaults and saved.';
-      status.style.color = 'var(--status-warning)';
-      setTimeout(() => {
-        status.textContent = '';
-      }, 3000);
+      // Settings reset and saved automatically
     },
   );
 }
@@ -301,6 +210,36 @@ function disableAnimationPreviews() {
   });
 }
 
+// Function to save colors automatically
+function saveColors() {
+  const newColors = {};
+  themes.forEach((theme) => {
+    const bgInput = document.getElementById(`${theme}-bg`);
+    const textInput = document.getElementById(`${theme}-text`);
+    if (
+      bgInput &&
+      bgInput instanceof HTMLInputElement &&
+      textInput &&
+      textInput instanceof HTMLInputElement
+    ) {
+      newColors[theme] = {
+        highlight: bgInput.value,
+        text: textInput.value,
+      };
+    }
+  });
+
+  chrome.storage.sync.set({ highlightColors: newColors }, () => {
+    // Colors saved automatically, no status message needed
+  });
+}
+
+// Function to update preview and save colors
+function updatePreviewAndSave(theme) {
+  updatePreview(theme);
+  saveColors();
+}
+
 // Function to add event listeners to color inputs
 function addColorInputListeners() {
   themes.forEach((theme) => {
@@ -308,10 +247,10 @@ function addColorInputListeners() {
     const textInput = document.getElementById(`${theme}-text`);
 
     if (bgInput && bgInput instanceof HTMLInputElement) {
-      bgInput.addEventListener('input', () => updatePreview(theme));
+      bgInput.addEventListener('input', () => updatePreviewAndSave(theme));
     }
     if (textInput && textInput instanceof HTMLInputElement) {
-      textInput.addEventListener('input', () => updatePreview(theme));
+      textInput.addEventListener('input', () => updatePreviewAndSave(theme));
     }
   });
 }
@@ -334,14 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Listen for system theme changes
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
   mediaQuery.addEventListener('change', handleSystemThemeChange);
-
-  // The save button in the new template is the first button in the main section
-  const saveButton = document.querySelector('main button.btn-primary'); // More specific selector
-  if (saveButton) {
-    saveButton.addEventListener('click', saveOptions);
-  } else {
-    console.error('Save button not found');
-  }
 
   // Add reset button functionality
   const resetButton = document.getElementById('reset-defaults');
