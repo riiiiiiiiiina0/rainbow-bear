@@ -60,16 +60,49 @@ function populateInputs(colorsToLoad) {
 
 // Load saved settings or defaults
 function loadOptions() {
-  chrome.storage.sync.get(['highlightColors', 'animatedHighlightsEnabled'], (data) => {
-    const colors = data.highlightColors || defaultColors;
-    populateInputs(colors);
+  chrome.storage.sync.get(
+    ['highlightColors', 'animatedHighlightsEnabled', 'colorBlindModeEnabled'],
+    (data) => {
+      const colors = data.highlightColors || defaultColors;
+      populateInputs(colors);
 
-    const animatedHighlightsEnabled = data.animatedHighlightsEnabled === undefined ? false : data.animatedHighlightsEnabled;
-    const toggle = document.getElementById('animated-highlights-toggle');
-    if (toggle && toggle instanceof HTMLInputElement) {
-      toggle.checked = animatedHighlightsEnabled;
-    }
-  });
+      const animatedHighlightsEnabled =
+        data.animatedHighlightsEnabled === undefined
+          ? false
+          : data.animatedHighlightsEnabled;
+      const animatedToggle = document.getElementById(
+        'animated-highlights-toggle',
+      );
+      if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
+        animatedToggle.checked = animatedHighlightsEnabled;
+
+        // Set initial animation preview state
+        if (animatedHighlightsEnabled) {
+          enableAnimationPreviews();
+        } else {
+          disableAnimationPreviews();
+        }
+      }
+
+      const colorBlindModeEnabled =
+        data.colorBlindModeEnabled === undefined
+          ? false
+          : data.colorBlindModeEnabled;
+      const colorBlindToggle = document.getElementById(
+        'color-blind-mode-toggle',
+      );
+      if (colorBlindToggle && colorBlindToggle instanceof HTMLInputElement) {
+        colorBlindToggle.checked = colorBlindModeEnabled;
+
+        // Set initial pattern preview state
+        if (colorBlindModeEnabled) {
+          enableColorBlindPatterns();
+        } else {
+          disableColorBlindPatterns();
+        }
+      }
+    },
+  );
 }
 
 // Save settings
@@ -92,76 +125,106 @@ function saveOptions() {
   });
 
   const animatedToggle = document.getElementById('animated-highlights-toggle');
-  const animatedHighlightsEnabled = animatedToggle instanceof HTMLInputElement ? animatedToggle.checked : false;
+  const animatedHighlightsEnabled =
+    animatedToggle instanceof HTMLInputElement ? animatedToggle.checked : false;
 
-  chrome.storage.sync.set({ highlightColors: newColors, animatedHighlightsEnabled: animatedHighlightsEnabled }, () => {
-    // Add a status message element if it doesn't exist
-    let status = document.getElementById('status-message');
-    if (!status) {
-      status = document.createElement('p');
-      status.id = 'status-message';
-      status.className = 'text-center mt-4 text-sm font-medium';
-      // Insert status message after the save button container
-      const saveButtonContainer = document.querySelector(
-        '.flex.justify-center.mt-8',
-      );
-      if (saveButtonContainer && saveButtonContainer.parentNode) {
-        saveButtonContainer.parentNode.insertBefore(
-          status,
-          saveButtonContainer.nextSibling,
+  const colorBlindToggle = document.getElementById('color-blind-mode-toggle');
+  const colorBlindModeEnabled =
+    colorBlindToggle instanceof HTMLInputElement
+      ? colorBlindToggle.checked
+      : false;
+
+  chrome.storage.sync.set(
+    {
+      highlightColors: newColors,
+      animatedHighlightsEnabled: animatedHighlightsEnabled,
+      colorBlindModeEnabled: colorBlindModeEnabled,
+    },
+    () => {
+      // Add a status message element if it doesn't exist
+      let status = document.getElementById('status-message');
+      if (!status) {
+        status = document.createElement('p');
+        status.id = 'status-message';
+        status.className = 'text-center mt-4 text-sm font-medium';
+        // Insert status message after the save button container
+        const saveButtonContainer = document.querySelector(
+          '.flex.justify-center.mt-8',
         );
-      } else {
-        // Fallback if the specific container isn't found
-        const mainElement = document.querySelector('main');
-        if (mainElement) {
-          mainElement.appendChild(status);
+        if (saveButtonContainer && saveButtonContainer.parentNode) {
+          saveButtonContainer.parentNode.insertBefore(
+            status,
+            saveButtonContainer.nextSibling,
+          );
+        } else {
+          // Fallback if the specific container isn't found
+          const mainElement = document.querySelector('main');
+          if (mainElement) {
+            mainElement.appendChild(status);
+          }
         }
       }
-    }
-    status.textContent = 'Settings saved.';
-    status.style.color = 'var(--status-success)';
-    setTimeout(() => {
-      status.textContent = '';
-    }, 2000);
-  });
+      status.textContent = 'Settings saved.';
+      status.style.color = 'var(--status-success)';
+      setTimeout(() => {
+        status.textContent = '';
+      }, 2000);
+    },
+  );
 }
 
 // Reset settings to defaults
 function resetOptions() {
   populateInputs(defaultColors);
-  // Also reset the animation toggle to its default (false) and update its visual state
+  // Also reset the animation toggle and color blind mode toggle to their defaults (false)
   const animatedToggle = document.getElementById('animated-highlights-toggle');
   if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
     animatedToggle.checked = false;
   }
 
-  chrome.storage.sync.set({ highlightColors: defaultColors, animatedHighlightsEnabled: false }, () => {
-    let status = document.getElementById('status-message');
-    if (!status) {
-      status = document.createElement('p');
-      status.id = 'status-message';
-      status.className = 'text-center mt-4 text-sm font-medium';
-      const saveButtonContainer = document.querySelector(
-        '.flex.justify-center.mt-8',
-      );
-      if (saveButtonContainer && saveButtonContainer.parentNode) {
-        saveButtonContainer.parentNode.insertBefore(
-          status,
-          saveButtonContainer.nextSibling,
+  const colorBlindToggle = document.getElementById('color-blind-mode-toggle');
+  if (colorBlindToggle && colorBlindToggle instanceof HTMLInputElement) {
+    colorBlindToggle.checked = false;
+  }
+
+  // Reset animation and pattern previews
+  disableAnimationPreviews();
+  disableColorBlindPatterns();
+
+  chrome.storage.sync.set(
+    {
+      highlightColors: defaultColors,
+      animatedHighlightsEnabled: false,
+      colorBlindModeEnabled: false,
+    },
+    () => {
+      let status = document.getElementById('status-message');
+      if (!status) {
+        status = document.createElement('p');
+        status.id = 'status-message';
+        status.className = 'text-center mt-4 text-sm font-medium';
+        const saveButtonContainer = document.querySelector(
+          '.flex.justify-center.mt-8',
         );
-      } else {
-        const mainElement = document.querySelector('main');
-        if (mainElement) {
-          mainElement.appendChild(status);
+        if (saveButtonContainer && saveButtonContainer.parentNode) {
+          saveButtonContainer.parentNode.insertBefore(
+            status,
+            saveButtonContainer.nextSibling,
+          );
+        } else {
+          const mainElement = document.querySelector('main');
+          if (mainElement) {
+            mainElement.appendChild(status);
+          }
         }
       }
-    }
-    status.textContent = 'Colors reset to defaults and saved.';
-    status.style.color = 'var(--status-warning)';
-    setTimeout(() => {
-      status.textContent = '';
-    }, 3000);
-  });
+      status.textContent = 'Colors reset to defaults and saved.';
+      status.style.color = 'var(--status-warning)';
+      setTimeout(() => {
+        status.textContent = '';
+      }, 3000);
+    },
+  );
 }
 
 // Function to update preview span for a specific theme
@@ -195,6 +258,46 @@ function updatePreview(theme) {
 function updateAllPreviews() {
   themes.forEach((theme) => {
     updatePreview(theme);
+  });
+}
+
+// Color blind pattern preview functions
+function enableColorBlindPatterns() {
+  const patternPreviews = document.querySelectorAll('.pattern-preview');
+  patternPreviews.forEach((preview) => {
+    preview.classList.add('color-blind-active');
+  });
+}
+
+function disableColorBlindPatterns() {
+  const patternPreviews = document.querySelectorAll('.pattern-preview');
+  patternPreviews.forEach((preview) => {
+    preview.classList.remove('color-blind-active');
+  });
+}
+
+// Animation preview functions
+function enableAnimationPreviews() {
+  const patternPreviews = document.querySelectorAll('.pattern-preview');
+  console.log('Enabling animations for', patternPreviews.length, 'elements');
+  patternPreviews.forEach((preview) => {
+    preview.classList.add('animated-active');
+    console.log(
+      'Added animated-active to element with classes:',
+      preview.className,
+    );
+  });
+}
+
+function disableAnimationPreviews() {
+  const patternPreviews = document.querySelectorAll('.pattern-preview');
+  console.log('Disabling animations for', patternPreviews.length, 'elements');
+  patternPreviews.forEach((preview) => {
+    preview.classList.remove('animated-active');
+    console.log(
+      'Removed animated-active from element with classes:',
+      preview.className,
+    );
   });
 }
 
@@ -259,10 +362,35 @@ document.addEventListener('DOMContentLoaded', () => {
   if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
     animatedToggle.addEventListener('change', () => {
       const enabled = animatedToggle.checked;
+
+      // Update animation preview visibility
+      if (enabled) {
+        enableAnimationPreviews();
+      } else {
+        disableAnimationPreviews();
+      }
+
       chrome.storage.sync.set({ animatedHighlightsEnabled: enabled }, () => {
         console.log(`Animated highlights ${enabled ? 'enabled' : 'disabled'}`);
-        // Optionally, provide feedback to the user here, though saveOptions already does.
-        // For immediate feedback on toggle, we might want a separate small status message or rely on the main save.
+      });
+    });
+  }
+
+  // Event listener for the color blind mode toggle - save on change
+  const colorBlindToggle = document.getElementById('color-blind-mode-toggle');
+  if (colorBlindToggle && colorBlindToggle instanceof HTMLInputElement) {
+    colorBlindToggle.addEventListener('change', () => {
+      const enabled = colorBlindToggle.checked;
+
+      // Update pattern preview visibility
+      if (enabled) {
+        enableColorBlindPatterns();
+      } else {
+        disableColorBlindPatterns();
+      }
+
+      chrome.storage.sync.set({ colorBlindModeEnabled: enabled }, () => {
+        console.log(`Color blind mode ${enabled ? 'enabled' : 'disabled'}`);
       });
     });
   }
