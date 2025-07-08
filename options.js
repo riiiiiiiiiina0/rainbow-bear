@@ -60,9 +60,15 @@ function populateInputs(colorsToLoad) {
 
 // Load saved settings or defaults
 function loadOptions() {
-  chrome.storage.sync.get('highlightColors', (data) => {
+  chrome.storage.sync.get(['highlightColors', 'animatedHighlightsEnabled'], (data) => {
     const colors = data.highlightColors || defaultColors;
     populateInputs(colors);
+
+    const animatedHighlightsEnabled = data.animatedHighlightsEnabled === undefined ? false : data.animatedHighlightsEnabled;
+    const toggle = document.getElementById('animated-highlights-toggle');
+    if (toggle && toggle instanceof HTMLInputElement) {
+      toggle.checked = animatedHighlightsEnabled;
+    }
   });
 }
 
@@ -85,7 +91,10 @@ function saveOptions() {
     }
   });
 
-  chrome.storage.sync.set({ highlightColors: newColors }, () => {
+  const animatedToggle = document.getElementById('animated-highlights-toggle');
+  const animatedHighlightsEnabled = animatedToggle instanceof HTMLInputElement ? animatedToggle.checked : false;
+
+  chrome.storage.sync.set({ highlightColors: newColors, animatedHighlightsEnabled: animatedHighlightsEnabled }, () => {
     // Add a status message element if it doesn't exist
     let status = document.getElementById('status-message');
     if (!status) {
@@ -120,7 +129,13 @@ function saveOptions() {
 // Reset settings to defaults
 function resetOptions() {
   populateInputs(defaultColors);
-  chrome.storage.sync.set({ highlightColors: defaultColors }, () => {
+  // Also reset the animation toggle to its default (false) and update its visual state
+  const animatedToggle = document.getElementById('animated-highlights-toggle');
+  if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
+    animatedToggle.checked = false;
+  }
+
+  chrome.storage.sync.set({ highlightColors: defaultColors, animatedHighlightsEnabled: false }, () => {
     let status = document.getElementById('status-message');
     if (!status) {
       status = document.createElement('p');
@@ -218,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
   mediaQuery.addEventListener('change', handleSystemThemeChange);
 
   // The save button in the new template is the first button in the main section
-  const saveButton = document.querySelector('main button');
+  const saveButton = document.querySelector('main button.btn-primary'); // More specific selector
   if (saveButton) {
     saveButton.addEventListener('click', saveOptions);
   } else {
@@ -237,5 +252,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   } else {
     console.error('Reset button not found');
+  }
+
+  // Event listener for the animated highlights toggle - save on change
+  const animatedToggle = document.getElementById('animated-highlights-toggle');
+  if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
+    animatedToggle.addEventListener('change', () => {
+      const enabled = animatedToggle.checked;
+      chrome.storage.sync.set({ animatedHighlightsEnabled: enabled }, () => {
+        console.log(`Animated highlights ${enabled ? 'enabled' : 'disabled'}`);
+        // Optionally, provide feedback to the user here, though saveOptions already does.
+        // For immediate feedback on toggle, we might want a separate small status message or rely on the main save.
+      });
+    });
   }
 });

@@ -32,15 +32,34 @@ function applyStyles(colors) {
   dynamicStyle.textContent = `:root { ${cssVariables.join(' ')} }`;
 }
 
-// Load initial styles
-chrome.storage.sync.get('highlightColors', (data) => {
+function toggleAnimationClass(enabled) {
+  if (enabled) {
+    document.body.classList.add('animated-highlights-active');
+    console.log('Better Notion Highlights: Animations enabled.');
+  } else {
+    document.body.classList.remove('animated-highlights-active');
+    console.log('Better Notion Highlights: Animations disabled.');
+  }
+}
+
+// Load initial settings
+chrome.storage.sync.get(['highlightColors', 'animatedHighlightsEnabled'], (data) => {
   const currentColors = data.highlightColors || defaultColors;
   applyStyles(currentColors);
+
+  const animatedEnabled = data.animatedHighlightsEnabled === undefined ? false : data.animatedHighlightsEnabled;
+  toggleAnimationClass(animatedEnabled);
 });
 
 // Listen for changes in storage
 chrome.storage.onChanged.addListener((changes, namespace) => {
-  if (namespace === 'sync' && changes.highlightColors) {
-    applyStyles(changes.highlightColors.newValue || defaultColors);
+  if (namespace === 'sync') {
+    if (changes.highlightColors) {
+      applyStyles(changes.highlightColors.newValue || defaultColors);
+      console.log('Better Notion Highlights: Highlight colors updated.');
+    }
+    if (changes.animatedHighlightsEnabled) {
+      toggleAnimationClass(changes.animatedHighlightsEnabled.newValue);
+    }
   }
 });
