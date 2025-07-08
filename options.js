@@ -75,6 +75,13 @@ function loadOptions() {
       );
       if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
         animatedToggle.checked = animatedHighlightsEnabled;
+
+        // Set initial animation preview state
+        if (animatedHighlightsEnabled) {
+          enableAnimationPreviews();
+        } else {
+          disableAnimationPreviews();
+        }
       }
 
       const colorBlindModeEnabled =
@@ -86,6 +93,13 @@ function loadOptions() {
       );
       if (colorBlindToggle && colorBlindToggle instanceof HTMLInputElement) {
         colorBlindToggle.checked = colorBlindModeEnabled;
+
+        // Set initial pattern preview state
+        if (colorBlindModeEnabled) {
+          enableColorBlindPatterns();
+        } else {
+          disableColorBlindPatterns();
+        }
       }
     },
   );
@@ -173,6 +187,10 @@ function resetOptions() {
     colorBlindToggle.checked = false;
   }
 
+  // Reset animation and pattern previews
+  disableAnimationPreviews();
+  disableColorBlindPatterns();
+
   chrome.storage.sync.set(
     {
       highlightColors: defaultColors,
@@ -243,6 +261,46 @@ function updateAllPreviews() {
   });
 }
 
+// Color blind pattern preview functions
+function enableColorBlindPatterns() {
+  const patternPreviews = document.querySelectorAll('.pattern-preview');
+  patternPreviews.forEach((preview) => {
+    preview.classList.add('color-blind-active');
+  });
+}
+
+function disableColorBlindPatterns() {
+  const patternPreviews = document.querySelectorAll('.pattern-preview');
+  patternPreviews.forEach((preview) => {
+    preview.classList.remove('color-blind-active');
+  });
+}
+
+// Animation preview functions
+function enableAnimationPreviews() {
+  const patternPreviews = document.querySelectorAll('.pattern-preview');
+  console.log('Enabling animations for', patternPreviews.length, 'elements');
+  patternPreviews.forEach((preview) => {
+    preview.classList.add('animated-active');
+    console.log(
+      'Added animated-active to element with classes:',
+      preview.className,
+    );
+  });
+}
+
+function disableAnimationPreviews() {
+  const patternPreviews = document.querySelectorAll('.pattern-preview');
+  console.log('Disabling animations for', patternPreviews.length, 'elements');
+  patternPreviews.forEach((preview) => {
+    preview.classList.remove('animated-active');
+    console.log(
+      'Removed animated-active from element with classes:',
+      preview.className,
+    );
+  });
+}
+
 // Function to add event listeners to color inputs
 function addColorInputListeners() {
   themes.forEach((theme) => {
@@ -304,10 +362,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
     animatedToggle.addEventListener('change', () => {
       const enabled = animatedToggle.checked;
+
+      // Update animation preview visibility
+      if (enabled) {
+        enableAnimationPreviews();
+      } else {
+        disableAnimationPreviews();
+      }
+
       chrome.storage.sync.set({ animatedHighlightsEnabled: enabled }, () => {
         console.log(`Animated highlights ${enabled ? 'enabled' : 'disabled'}`);
-        // Optionally, provide feedback to the user here, though saveOptions already does.
-        // For immediate feedback on toggle, we might want a separate small status message or rely on the main save.
       });
     });
   }
@@ -317,6 +381,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (colorBlindToggle && colorBlindToggle instanceof HTMLInputElement) {
     colorBlindToggle.addEventListener('change', () => {
       const enabled = colorBlindToggle.checked;
+
+      // Update pattern preview visibility
+      if (enabled) {
+        enableColorBlindPatterns();
+      } else {
+        disableColorBlindPatterns();
+      }
+
       chrome.storage.sync.set({ colorBlindModeEnabled: enabled }, () => {
         console.log(`Color blind mode ${enabled ? 'enabled' : 'disabled'}`);
       });
