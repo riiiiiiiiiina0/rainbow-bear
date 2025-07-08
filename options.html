@@ -9,13 +9,7 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <script src="libs/tailwindcss.3.4.16_forms.0.5.9_container-queries.0.1.1.js"></script>
-  <script>
-    // Apply system theme immediately to prevent flash
-    (function () {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', systemTheme);
-    })();
-  </script>
+  <script src="options-page-theme.js"></script>
   <style type="text/tailwindcss">
     :root {
         --primary-color: #0c7ff2;
