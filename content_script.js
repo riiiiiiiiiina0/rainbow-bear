@@ -13,7 +13,24 @@ const defaultColors = {
   red: { highlight: '#ff3737', text: '#ffffff' },
 };
 
-function applyStyles(colors) {
+// Color blind patterns (extracted from color-blind.html)
+const colorBlindPatterns = {
+  gray: 'repeating-linear-gradient(45deg, #ccc, #ccc 2px, transparent 2px, transparent 5px)',
+  brown: 'repeating-linear-gradient(0deg, #8B4513 0 5px, #D2B48C 5px 10px)',
+  orange:
+    'repeating-linear-gradient(45deg, orange, orange 1px, transparent 1px, transparent 4px), repeating-linear-gradient(-45deg, orange, orange 1px, transparent 1px, transparent 4px)',
+  yellow:
+    'repeating-radial-gradient(circle, #ff0 0px, #ff0 2px, transparent 2px, transparent 6px)',
+  green:
+    'repeating-linear-gradient(90deg, #0f0, #0f0 2px, transparent 2px, transparent 5px)',
+  blue: 'repeating-linear-gradient(0deg, #00f, #00f 2px, transparent 2px, transparent 5px)',
+  purple:
+    'repeating-linear-gradient(135deg, purple, purple 2px, transparent 2px, transparent 5px)',
+  pink: 'repeating-radial-gradient(circle, pink 0 1px, transparent 1px 4px)',
+  red: 'repeating-linear-gradient(0deg, red, red 1px, transparent 1px, transparent 5px), repeating-linear-gradient(90deg, red, red 1px, transparent 1px, transparent 5px)',
+};
+
+function applyStyles(colors, colorBlindModeEnabled = false) {
   let dynamicStyle = document.getElementById(STYLE_ID);
   if (!dynamicStyle) {
     dynamicStyle = document.createElement('style');
@@ -22,14 +39,193 @@ function applyStyles(colors) {
   }
 
   const cssVariables = [];
+  let colorBlindStyles = '';
+
   for (const theme in colors) {
     if (colors[theme] && colors[theme].highlight && colors[theme].text) {
-      cssVariables.push(`--${theme}-highlight: ${colors[theme].highlight} !important;`);
+      cssVariables.push(
+        `--${theme}-highlight: ${colors[theme].highlight} !important;`,
+      );
       cssVariables.push(`--${theme}-text: ${colors[theme].text} !important;`);
     }
   }
 
-  dynamicStyle.textContent = `:root { ${cssVariables.join(' ')} }`;
+  // Add color blind pattern styles if enabled
+  if (colorBlindModeEnabled) {
+    // Add a class to body to enable color blind mode
+    document.body.classList.add('color-blind-mode-active');
+
+    colorBlindStyles = `
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(248, 248, 247, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(47, 47, 47, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(248, 248, 247, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(47, 47, 47, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(248, 248, 247)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(47, 47, 47)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(248, 248, 247, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(47, 47, 47, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(248, 248, 247, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(47, 47, 47, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(248, 248, 247)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(47, 47, 47)'] {
+        background-image: ${colorBlindPatterns.gray} !important;
+        background-size: 10px 10px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+      
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(244, 238, 238, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(74, 50, 40, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(244, 238, 238, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(74, 50, 40, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(244, 238, 238)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(74, 50, 40)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(244, 238, 238, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(74, 50, 40, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(244, 238, 238, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(74, 50, 40, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(244, 238, 238)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(74, 50, 40)'] {
+        background-image: ${colorBlindPatterns.brown} !important;
+        background-size: 10px 10px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+      
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(251, 236, 221, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(92, 59, 35, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(251, 236, 221, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(92, 59, 35, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(251, 236, 221)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(92, 59, 35)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(251, 236, 221, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(92, 59, 35, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(251, 236, 221, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(92, 59, 35, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(251, 236, 221)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(92, 59, 35)'] {
+        background-image: ${colorBlindPatterns.orange} !important;
+        background-size: 10px 10px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+      
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(251, 243, 219, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(86, 67, 40, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(251, 243, 219, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(86, 67, 40, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(251, 243, 219)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(86, 67, 40)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(251, 243, 219, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(86, 67, 40, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(251, 243, 219, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(86, 67, 40, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(251, 243, 219)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(86, 67, 40)'] {
+        background-image: ${colorBlindPatterns.yellow} !important;
+        background-size: 10px 10px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+      
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(237, 243, 236, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(63, 68, 68, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(237, 243, 236, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(63, 68, 68, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(237, 243, 236)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(63, 68, 68)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(237, 243, 236, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(63, 68, 68, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(237, 243, 236, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(63, 68, 68, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(237, 243, 236)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(63, 68, 68)'] {
+        background-image: ${colorBlindPatterns.green} !important;
+        background-size: 10px 10px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+      
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(231, 243, 248, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(51, 61, 72, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(231, 243, 248, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(51, 61, 72, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(231, 243, 248)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(51, 61, 72)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(231, 243, 248, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(51, 61, 72, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(231, 243, 248, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(51, 61, 72, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(231, 243, 248)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(51, 61, 72)'] {
+        background-image: ${colorBlindPatterns.blue} !important;
+        background-size: 10px 10px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+      
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(248, 243, 252, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(73, 50, 82, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(248, 243, 252, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(73, 50, 82, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(248, 243, 252)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(73, 50, 82)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(248, 243, 252, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(73, 50, 82, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(248, 243, 252, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(73, 50, 82, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(248, 243, 252)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(73, 50, 82)'] {
+        background-image: ${colorBlindPatterns.purple} !important;
+        background-size: 10px 10px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+      
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(252, 241, 246, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(83, 59, 76, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(252, 241, 246, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(83, 59, 76, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(252, 241, 246)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(83, 59, 76)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(252, 241, 246, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(83, 59, 76, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(252, 241, 246, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(83, 59, 76, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(252, 241, 246)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(83, 59, 76)'] {
+        background-image: ${colorBlindPatterns.pink} !important;
+        background-size: 8px 8px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+      
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(253, 235, 236, 1)'],
+      .color-blind-mode-active .notion-page-content *[style*='background:rgba(89, 54, 56, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(253, 235, 236, 1)'],
+      .color-blind-mode-active .notion-page-view-discussion *[style*='background:rgba(89, 54, 56, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(253, 235, 236)'],
+      .color-blind-mode-active .notion-selectable.notion-page-block *[style*='background: rgb(89, 54, 56)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(253, 235, 236, 1)'],
+      .color-blind-mode-active .notion-selectable.notion-text-block *[style*='background:rgba(89, 54, 56, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(253, 235, 236, 1)'],
+      .color-blind-mode-active *[placeholder='Add a description…'] *[style*='background:rgba(89, 54, 56, 1)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(253, 235, 236)'],
+      .color-blind-mode-active [role='menuitem'] div[style*='background: rgb(89, 54, 56)'] {
+        background-image: ${colorBlindPatterns.red} !important;
+        background-size: 10px 10px !important;
+        background-repeat: repeat !important;
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff !important;
+      }
+    `;
+  } else {
+    // Remove the color blind mode class if disabled
+    document.body.classList.remove('color-blind-mode-active');
+  }
+
+  const rootStyles = `:root { ${cssVariables.join(' ')} }`;
+
+  dynamicStyle.textContent = rootStyles + colorBlindStyles;
 }
 
 function toggleAnimationClass(enabled) {
@@ -43,21 +239,47 @@ function toggleAnimationClass(enabled) {
 }
 
 // Load initial settings
-chrome.storage.sync.get(['highlightColors', 'animatedHighlightsEnabled'], (data) => {
-  const currentColors = data.highlightColors || defaultColors;
-  applyStyles(currentColors);
+chrome.storage.sync.get(
+  ['highlightColors', 'animatedHighlightsEnabled', 'colorBlindModeEnabled'],
+  (data) => {
+    const currentColors = data.highlightColors || defaultColors;
+    const colorBlindModeEnabled =
+      data.colorBlindModeEnabled === undefined
+        ? false
+        : data.colorBlindModeEnabled;
 
-  const animatedEnabled = data.animatedHighlightsEnabled === undefined ? false : data.animatedHighlightsEnabled;
-  toggleAnimationClass(animatedEnabled);
-});
+    applyStyles(currentColors, colorBlindModeEnabled);
+
+    const animatedEnabled =
+      data.animatedHighlightsEnabled === undefined
+        ? false
+        : data.animatedHighlightsEnabled;
+    toggleAnimationClass(animatedEnabled);
+  },
+);
 
 // Listen for changes in storage
 chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'sync') {
-    if (changes.highlightColors) {
-      applyStyles(changes.highlightColors.newValue || defaultColors);
-      console.log('Better Notion Highlights: Highlight colors updated.');
-    }
+    // Get current settings to ensure we have all values when one changes
+    chrome.storage.sync.get(
+      ['highlightColors', 'colorBlindModeEnabled'],
+      (data) => {
+        const currentColors = data.highlightColors || defaultColors;
+        const colorBlindModeEnabled =
+          data.colorBlindModeEnabled === undefined
+            ? false
+            : data.colorBlindModeEnabled;
+
+        if (changes.highlightColors || changes.colorBlindModeEnabled) {
+          applyStyles(currentColors, colorBlindModeEnabled);
+          console.log(
+            'Better Notion Highlights: Highlight colors or color blind mode updated.',
+          );
+        }
+      },
+    );
+
     if (changes.animatedHighlightsEnabled) {
       toggleAnimationClass(changes.animatedHighlightsEnabled.newValue);
     }
