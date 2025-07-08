@@ -146,8 +146,13 @@
       .pattern-preview {
         background-size: 10px 10px;
         background-repeat: repeat;
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff;
         transition: background-image 0.3s ease;
+      }
+
+      /* Text shadow only when color blind mode or animation is active */
+      .pattern-preview.color-blind-active,
+      .pattern-preview.animated-active {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff;
       }
 
       .pattern-preview.gray-pattern {
