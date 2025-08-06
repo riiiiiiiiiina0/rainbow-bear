@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Rainbow Bear",
-  "version": "1.10",
+  "version": "1.11",
   "description": "Brings vibrant, colorful highlights to Notion pages, making key content instantly stand out.",
   "icons": {
     "16": "icons/icon-16x16.png",
