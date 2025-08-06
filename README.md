@@ -1,4 +1,4 @@
-# 🌈🐻‍❄️ Rainbow Bear
+# 🐻‍❄️🌈 Rainbow Bear
 
 **Make your Notion pages as colorful as a bear’s dream!**
 
