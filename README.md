@@ -61,6 +61,19 @@ Rainbow Bear does not collect, transmit, or store any personal data. No trackers
 
 - Works on `notion.so` pages in Chrome (and Chromium‑based browsers that support MV3).
 
+## If Notion changes break highlight colors
+
+If Notion updates its internal styles and the extension stops matching highlight colors, refresh the CSS using this workflow:
+
+1. Export the Notion test page as HTML: [Highlight color test](https://www.notion.so/triiii/Highlight-color-test-26c7aa7407c18044bd2cd493593253ba). There is an example copy in the `docs` folder: `docs/Highlight color test (exported from notion).html`.
+2. In Cursor, open a chat for this repo and paste this prompt (replace `@xxx.html` with your exported file path if different):
+
+```
+the original highlight colors on notion page has changed, please read the latest values from @docs/Highlight color test (exported from notion).html, then update the corresponding css values in @styles.css
+```
+
+3. Review the proposed edits and apply them. Reload the unpacked extension in `chrome://extensions` if needed.
+
 ## License
 
 MIT — see `LICENSE` for details.
