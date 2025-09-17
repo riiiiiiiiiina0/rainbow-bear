@@ -9,7 +9,7 @@
 
   /* Orange theme */
   --orange-highlight: #ff9351;
-  --orange-text: black;
+  --orange-text: white;
 
   /* Yellow theme */
   --yellow-highlight: #faff72;
@@ -84,8 +84,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(240, 239, 237)'],
 *:not(nav):not(nav *)[style*='background:rgba(47, 47, 47, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(47, 47, 47)'],
-*:not(nav):not(nav *)[style*='background: rgba(84, 72, 49, 0.15)'],
-*:not(nav):not(nav *)[style*='background: rgba(255, 255, 255, 0.13)'] {
+*:not(nav):not(nav *)[style*='background:rgba(84, 72, 49, 0.15)'],
+*:not(nav):not(nav *)[style*='background:rgba(255, 255, 255, 0.13)'],
+*:not(nav):not(nav *)[style*='background:rgba(42, 28, 0, 0.07)'] {
   background: var(--gray-highlight) !important;
   color: var(--gray-text) !important;
 }
@@ -99,9 +100,11 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(47, 47, 47)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(84, 72, 49, 0.15)'],
+  *:not(nav):not(nav *)[style*='background:rgba(84, 72, 49, 0.15)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(255, 255, 255, 0.13)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(255, 255, 255, 0.13)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(42, 28, 0, 0.07)'] {
   animation: subtlePulse 2s infinite ease-in-out;
 }
 
@@ -110,8 +113,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(245, 237, 233)'],
 *:not(nav):not(nav *)[style*='background:rgba(74, 50, 40, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(74, 50, 40)'],
-*:not(nav):not(nav *)[style*='background: rgba(210, 162, 141, 0.35)'],
-*:not(nav):not(nav *)[style*='background: rgba(184, 101, 67, 0.45)'] {
+*:not(nav):not(nav *)[style*='background:rgba(210, 162, 141, 0.35)'],
+*:not(nav):not(nav *)[style*='background:rgba(184, 101, 67, 0.45)'],
+*:not(nav):not(nav *)[style*='background:rgba(139, 46, 0, 0.086)'] {
   background: var(--brown-highlight) !important;
   color: var(--brown-text) !important;
 }
@@ -125,9 +129,11 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(74, 50, 40)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(210, 162, 141, 0.35)'],
+  *:not(nav):not(nav *)[style*='background:rgba(210, 162, 141, 0.35)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(184, 101, 67, 0.45)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(184, 101, 67, 0.45)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(139, 46, 0, 0.086)'] {
   animation: colorCycle 3s infinite linear;
 }
 
@@ -136,8 +142,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(251, 235, 222)'],
 *:not(nav):not(nav *)[style*='background:rgba(92, 59, 35, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(92, 59, 35)'],
-*:not(nav):not(nav *)[style*='background: rgba(224, 124, 57, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(233, 126, 35, 0.45)'] {
+*:not(nav):not(nav *)[style*='background:rgba(224, 124, 57, 0.27)'],
+*:not(nav):not(nav *)[style*='background:rgba(233, 126, 35, 0.45)'],
+*:not(nav):not(nav *)[style*='background:rgba(224, 101, 1, 0.129)'] {
   background: var(--orange-highlight) !important;
   color: var(--orange-text) !important;
   --current-highlight-glow: var(--orange-highlight);
@@ -152,9 +159,11 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(92, 59, 35)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(224, 124, 57, 0.27)'],
+  *:not(nav):not(nav *)[style*='background:rgba(224, 124, 57, 0.27)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(233, 126, 35, 0.45)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(233, 126, 35, 0.45)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(224, 101, 1, 0.129)'] {
   animation: gentleGlow 2.2s infinite alternate;
 }
 
@@ -163,8 +172,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(249, 243, 220)'],
 *:not(nav):not(nav *)[style*='background:rgba(86, 67, 40, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(86, 67, 40)'],
-*:not(nav):not(nav *)[style*='background: rgba(236, 191, 66, 0.39)'],
-*:not(nav):not(nav *)[style*='background: rgba(250, 177, 67, 0.5)'] {
+*:not(nav):not(nav *)[style*='background:rgba(236, 191, 66, 0.39)'],
+*:not(nav):not(nav *)[style*='background:rgba(250, 177, 67, 0.5)'],
+*:not(nav):not(nav *)[style*='background:rgba(211, 168, 0, 0.137)'] {
   background: var(--yellow-highlight) !important;
   color: var(--yellow-text) !important;
 }
@@ -178,9 +188,11 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(86, 67, 40)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(236, 191, 66, 0.39)'],
+  *:not(nav):not(nav *)[style*='background:rgba(236, 191, 66, 0.39)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(250, 177, 67, 0.5)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(250, 177, 67, 0.5)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(211, 168, 0, 0.137)'] {
   animation: subtlePulse 2.5s infinite ease-in-out;
 }
 
@@ -189,8 +201,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(232, 241, 236)'],
 *:not(nav):not(nav *)[style*='background:rgba(36, 61, 48, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(36, 61, 48)'],
-*:not(nav):not(nav *)[style*='background: rgba(123, 183, 129, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(45, 153, 100, 0.5)'] {
+*:not(nav):not(nav *)[style*='background:rgba(123, 183, 129, 0.27)'],
+*:not(nav):not(nav *)[style*='background:rgba(45, 153, 100, 0.5)'],
+*:not(nav):not(nav *)[style*='background:rgba(0, 100, 45, 0.09)'] {
   background: var(--green-highlight) !important;
   color: var(--green-text) !important;
 }
@@ -204,9 +217,11 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(36, 61, 48)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(123, 183, 129, 0.27)'],
+  *:not(nav):not(nav *)[style*='background:rgba(123, 183, 129, 0.27)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(45, 153, 100, 0.5)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(45, 153, 100, 0.5)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(0, 100, 45, 0.09)'] {
   animation: colorCycle 3.5s infinite linear;
 }
 
@@ -215,8 +230,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(232, 242, 250)'],
 *:not(nav):not(nav *)[style*='background:rgba(20, 58, 78, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(20, 58, 78)'],
-*:not(nav):not(nav *)[style*='background: rgba(93, 165, 206, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(51, 126, 169, 0.5)'] {
+*:not(nav):not(nav *)[style*='background:rgba(93, 165, 206, 0.27)'],
+*:not(nav):not(nav *)[style*='background:rgba(51, 126, 169, 0.5)'],
+*:not(nav):not(nav *)[style*='background:rgba(0, 111, 200, 0.09)'] {
   background: var(--blue-highlight) !important;
   color: var(--blue-text) !important;
   --current-highlight-glow: var(--blue-highlight);
@@ -231,9 +247,11 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(20, 58, 78)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(93, 165, 206, 0.27)'],
+  *:not(nav):not(nav *)[style*='background:rgba(93, 165, 206, 0.27)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(51, 126, 169, 0.5)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(51, 126, 169, 0.5)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(0, 111, 200, 0.09)'] {
   animation: gentleGlow 2.5s infinite alternate;
 }
 
@@ -242,8 +260,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(243, 235, 249)'],
 *:not(nav):not(nav *)[style*='background:rgba(60, 45, 73, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(60, 45, 73)'],
-*:not(nav):not(nav *)[style*='background: rgba(168, 129, 197, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(168, 91, 242, 0.34)'] {
+*:not(nav):not(nav *)[style*='background:rgba(168, 129, 197, 0.27)'],
+*:not(nav):not(nav *)[style*='background:rgba(168, 91, 242, 0.34)'],
+*:not(nav):not(nav *)[style*='background:rgba(102, 0, 178, 0.078)'] {
   background: var(--purple-highlight) !important;
   color: var(--purple-text) !important;
 }
@@ -257,9 +276,11 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(60, 45, 73)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(168, 129, 197, 0.27)'],
+  *:not(nav):not(nav *)[style*='background:rgba(168, 129, 197, 0.27)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(168, 91, 242, 0.34)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(168, 91, 242, 0.34)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(102, 0, 178, 0.078)'] {
   animation: subtlePulse 1.8s infinite ease-in-out;
 }
 
@@ -268,8 +289,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(250, 233, 241)'],
 *:not(nav):not(nav *)[style*='background:rgba(78, 44, 60, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(78, 44, 60)'],
-*:not(nav):not(nav *)[style*='background: rgba(225, 136, 179, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(220, 76, 145, 0.4)'] {
+*:not(nav):not(nav *)[style*='background:rgba(225, 136, 179, 0.27)'],
+*:not(nav):not(nav *)[style*='background:rgba(220, 76, 145, 0.4)'],
+*:not(nav):not(nav *)[style*='background:rgba(197, 0, 93, 0.086)'] {
   background: var(--pink-highlight) !important;
   color: var(--pink-text) !important;
   --current-highlight-glow: var(--pink-highlight);
@@ -284,9 +306,11 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(78, 44, 60)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(225, 136, 179, 0.27)'],
+  *:not(nav):not(nav *)[style*='background:rgba(225, 136, 179, 0.27)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(220, 76, 145, 0.4)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(220, 76, 145, 0.4)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(197, 0, 93, 0.086)'] {
   animation: gentleGlow 2.8s infinite alternate;
 }
 
@@ -295,8 +319,9 @@
 *:not(nav):not(nav *)[style*='background: rgb(252, 233, 231)'],
 *:not(nav):not(nav *)[style*='background:rgba(82, 46, 42, 1)'],
 *:not(nav):not(nav *)[style*='background: rgb(82, 46, 42)'],
-*:not(nav):not(nav *)[style*='background: rgba(244, 171, 159, 0.4)'],
-*:not(nav):not(nav *)[style*='background: rgba(222, 85, 83, 0.45)'] {
+*:not(nav):not(nav *)[style*='background:rgba(244, 171, 159, 0.4)'],
+*:not(nav):not(nav *)[style*='background:rgba(222, 85, 83, 0.45)'],
+*:not(nav):not(nav *)[style*='background:rgba(223, 22, 0, 0.094)'] {
   background: var(--red-highlight) !important;
   color: var(--red-text) !important;
 }
@@ -310,49 +335,60 @@
 .animated-highlights-active
   *:not(nav):not(nav *)[style*='background: rgb(82, 46, 42)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(244, 171, 159, 0.4)'],
+  *:not(nav):not(nav *)[style*='background:rgba(244, 171, 159, 0.4)'],
 .animated-highlights-active
-  *:not(nav):not(nav *)[style*='background: rgba(222, 85, 83, 0.45)'] {
+  *:not(nav):not(nav *)[style*='background:rgba(222, 85, 83, 0.45)'],
+.animated-highlights-active
+  *:not(nav):not(nav *)[style*='background:rgba(223, 22, 0, 0.094)'] {
   animation: colorCycle 2.8s infinite linear;
 }
 
 /* Enhanced font styling for all menu items */
 [role='menuitem'] div[style*='background: rgb(248, 248, 247)'],
 [role='menuitem'] div[style*='background: rgb(47, 47, 47)'],
-[role='menuitem'] div[style*='background: rgba(84, 72, 49, 0.15)'],
+[role='menuitem'] div[style*='background:rgba(84, 72, 49, 0.15)'],
 [role='menuitem'] div[style*='background: rgb(245, 237, 233)'],
 [role='menuitem'] div[style*='background: rgb(74, 50, 40)'],
-[role='menuitem'] div[style*='background: rgba(210, 162, 141, 0.35)'],
+[role='menuitem'] div[style*='background:rgba(210, 162, 141, 0.35)'],
 [role='menuitem'] div[style*='background: rgb(251, 235, 222)'],
 [role='menuitem'] div[style*='background: rgb(92, 59, 35)'],
-[role='menuitem'] div[style*='background: rgba(224, 124, 57, 0.27)'],
+[role='menuitem'] div[style*='background:rgba(224, 124, 57, 0.27)'],
 [role='menuitem'] div[style*='background: rgb(249, 243, 220)'],
 [role='menuitem'] div[style*='background: rgb(86, 67, 40)'],
-[role='menuitem'] div[style*='background: rgba(236, 191, 66, 0.39)'],
+[role='menuitem'] div[style*='background:rgba(236, 191, 66, 0.39)'],
 [role='menuitem'] div[style*='background: rgb(232, 241, 236)'],
 [role='menuitem'] div[style*='background: rgb(36, 61, 48)'],
-[role='menuitem'] div[style*='background: rgba(123, 183, 129, 0.27)'],
+[role='menuitem'] div[style*='background:rgba(123, 183, 129, 0.27)'],
 [role='menuitem'] div[style*='background: rgb(232, 242, 250)'],
 [role='menuitem'] div[style*='background: rgb(20, 58, 78)'],
-[role='menuitem'] div[style*='background: rgba(93, 165, 206, 0.27)'],
+[role='menuitem'] div[style*='background:rgba(93, 165, 206, 0.27)'],
 [role='menuitem'] div[style*='background: rgb(243, 235, 249)'],
 [role='menuitem'] div[style*='background: rgb(60, 45, 73)'],
-[role='menuitem'] div[style*='background: rgba(168, 129, 197, 0.27)'],
+[role='menuitem'] div[style*='background:rgba(168, 129, 197, 0.27)'],
 [role='menuitem'] div[style*='background: rgb(250, 233, 241)'],
 [role='menuitem'] div[style*='background: rgb(78, 44, 60)'],
-[role='menuitem'] div[style*='background: rgba(225, 136, 179, 0.27)'],
+[role='menuitem'] div[style*='background:rgba(225, 136, 179, 0.27)'],
 [role='menuitem'] div[style*='background: rgb(252, 233, 231)'],
 [role='menuitem'] div[style*='background: rgb(82, 46, 42)'],
-[role='menuitem'] div[style*='background: rgba(244, 171, 159, 0.4)'],
-[role='menuitem'] div[style*='background: rgba(255, 255, 255, 0.13)'],
-[role='menuitem'] div[style*='background: rgba(184, 101, 67, 0.45)'],
-[role='menuitem'] div[style*='background: rgba(233, 126, 35, 0.45)'],
-[role='menuitem'] div[style*='background: rgba(250, 177, 67, 0.5)'],
-[role='menuitem'] div[style*='background: rgba(45, 153, 100, 0.5)'],
-[role='menuitem'] div[style*='background: rgba(51, 126, 169, 0.5)'],
-[role='menuitem'] div[style*='background: rgba(168, 91, 242, 0.34)'],
-[role='menuitem'] div[style*='background: rgba(220, 76, 145, 0.4)'],
-[role='menuitem'] div[style*='background: rgba(222, 85, 83, 0.45)'] {
+[role='menuitem'] div[style*='background:rgba(244, 171, 159, 0.4)'],
+[role='menuitem'] div[style*='background:rgba(255, 255, 255, 0.13)'],
+[role='menuitem'] div[style*='background:rgba(184, 101, 67, 0.45)'],
+[role='menuitem'] div[style*='background:rgba(233, 126, 35, 0.45)'],
+[role='menuitem'] div[style*='background:rgba(250, 177, 67, 0.5)'],
+[role='menuitem'] div[style*='background:rgba(45, 153, 100, 0.5)'],
+[role='menuitem'] div[style*='background:rgba(51, 126, 169, 0.5)'],
+[role='menuitem'] div[style*='background:rgba(168, 91, 242, 0.34)'],
+[role='menuitem'] div[style*='background:rgba(220, 76, 145, 0.4)'],
+[role='menuitem'] div[style*='background:rgba(222, 85, 83, 0.45)'],
+[role='menuitem'] div[style*='background:rgba(42, 28, 0, 0.07)'],
+[role='menuitem'] div[style*='background:rgba(139, 46, 0, 0.086)'],
+[role='menuitem'] div[style*='background:rgba(224, 101, 1, 0.129)'],
+[role='menuitem'] div[style*='background:rgba(211, 168, 0, 0.137)'],
+[role='menuitem'] div[style*='background:rgba(0, 100, 45, 0.09)'],
+[role='menuitem'] div[style*='background:rgba(0, 111, 200, 0.09)'],
+[role='menuitem'] div[style*='background:rgba(102, 0, 178, 0.078)'],
+[role='menuitem'] div[style*='background:rgba(197, 0, 93, 0.086)'],
+[role='menuitem'] div[style*='background:rgba(223, 22, 0, 0.094)'] {
   font-size: var(--menu-font-size) !important;
   font-weight: var(--menu-font-weight) !important;
 }

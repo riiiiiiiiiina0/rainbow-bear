@@ -2,7 +2,7 @@
 const defaultColors = {
   gray: { highlight: '#dcdcdc', text: '#000000' },
   brown: { highlight: '#986a33', text: '#ffffff' },
-  orange: { highlight: '#ff9351', text: '#000000' },
+  orange: { highlight: '#ff9351', text: '#ffffff' },
   yellow: { highlight: '#faff72', text: '#000000' },
   green: { highlight: '#74de2e', text: '#000000' },
   blue: { highlight: '#3da5ff', text: '#ffffff' },
