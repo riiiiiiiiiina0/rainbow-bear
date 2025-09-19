@@ -10,9 +10,7 @@ Make your Notion highlights pop! Rainbow Bear’s one and only purpose is to mak
 
 - **One single purpose**: Improve Notion’s highlight colors so important ideas stand out.
 - **Vivid and readable**: Brighter, clearer highlight backgrounds with appropriate text contrast.
-- **Color‑blind friendly**: Optional gentle patterns layer on top of colors to help differentiate hues.
 - **Customize your palette**: Pick your own background and text color per Notion highlight color.
-- **Optional animations**: Subtle, soft animations you can turn on to draw the eye (off by default).
 - **Dark/light aware**: Works nicely with both Notion themes.
 - **Private and lightweight**: Uses only `storage` permission. No analytics, no tracking, no network calls.
 
@@ -44,10 +42,8 @@ Key files if you’re curious:
 ## Use it
 
 1. Open Notion and highlight text as usual — colors will appear brighter and crisper.
-2. Right‑click the extension icon or visit the extension’s Options page to:
+2. Right-click the extension icon or visit the extension’s Options page to:
    - Adjust background and text for each color.
-   - Toggle Color‑blind Mode to add gentle patterns for extra differentiation.
-   - Toggle Animated Highlights if you want a soft visual cue.
 
 ## Permissions
 
