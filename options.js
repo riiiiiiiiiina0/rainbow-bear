@@ -60,80 +60,19 @@ function populateInputs(colorsToLoad) {
 
 // Load saved settings or defaults
 function loadOptions() {
-  chrome.storage.sync.get(
-    ['highlightColors', 'animatedHighlightsEnabled', 'colorBlindModeEnabled'],
-    (data) => {
-      const colors = data.highlightColors || defaultColors;
-      populateInputs(colors);
+  chrome.storage.sync.get(['highlightColors'], (data) => {
+    const colors = data.highlightColors || defaultColors;
+    populateInputs(colors);
 
-      const animatedHighlightsEnabled =
-        data.animatedHighlightsEnabled === undefined
-          ? false
-          : data.animatedHighlightsEnabled;
-      const animatedToggle = document.getElementById(
-        'animated-highlights-toggle',
-      );
-      if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
-        animatedToggle.checked = animatedHighlightsEnabled;
-
-        // Set initial animation preview state
-        if (animatedHighlightsEnabled) {
-          enableAnimationPreviews();
-        } else {
-          disableAnimationPreviews();
-        }
-      }
-
-      const colorBlindModeEnabled =
-        data.colorBlindModeEnabled === undefined
-          ? false
-          : data.colorBlindModeEnabled;
-      const colorBlindToggle = document.getElementById(
-        'color-blind-mode-toggle',
-      );
-      if (colorBlindToggle && colorBlindToggle instanceof HTMLInputElement) {
-        colorBlindToggle.checked = colorBlindModeEnabled;
-
-        // Set initial pattern preview state
-        if (colorBlindModeEnabled) {
-          enableColorBlindPatterns();
-        } else {
-          disableColorBlindPatterns();
-        }
-      }
-    },
-  );
+    // No animated highlight or color-blind options to load
+  });
 }
 
 // Reset settings to defaults
 function resetOptions() {
   populateInputs(defaultColors);
-  // Also reset the animation toggle and color blind mode toggle to their defaults (false)
-  const animatedToggle = document.getElementById('animated-highlights-toggle');
-  if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
-    animatedToggle.checked = false;
-  }
-
-  const colorBlindToggle = document.getElementById('color-blind-mode-toggle');
-  if (colorBlindToggle && colorBlindToggle instanceof HTMLInputElement) {
-    colorBlindToggle.checked = false;
-  }
-
-  // Reset animation and pattern previews
-  disableAnimationPreviews();
-  disableColorBlindPatterns();
-
-  // Save all settings including colors
-  chrome.storage.sync.set(
-    {
-      highlightColors: defaultColors,
-      animatedHighlightsEnabled: false,
-      colorBlindModeEnabled: false,
-    },
-    () => {
-      // Settings reset and saved automatically
-    },
-  );
+  // Save default colors only
+  chrome.storage.sync.set({ highlightColors: defaultColors }, () => {});
 }
 
 // Function to update preview span for a specific theme
@@ -170,45 +109,7 @@ function updateAllPreviews() {
   });
 }
 
-// Color blind pattern preview functions
-function enableColorBlindPatterns() {
-  const patternPreviews = document.querySelectorAll('.pattern-preview');
-  patternPreviews.forEach((preview) => {
-    preview.classList.add('color-blind-active');
-  });
-}
-
-function disableColorBlindPatterns() {
-  const patternPreviews = document.querySelectorAll('.pattern-preview');
-  patternPreviews.forEach((preview) => {
-    preview.classList.remove('color-blind-active');
-  });
-}
-
-// Animation preview functions
-function enableAnimationPreviews() {
-  const patternPreviews = document.querySelectorAll('.pattern-preview');
-  console.log('Enabling animations for', patternPreviews.length, 'elements');
-  patternPreviews.forEach((preview) => {
-    preview.classList.add('animated-active');
-    console.log(
-      'Added animated-active to element with classes:',
-      preview.className,
-    );
-  });
-}
-
-function disableAnimationPreviews() {
-  const patternPreviews = document.querySelectorAll('.pattern-preview');
-  console.log('Disabling animations for', patternPreviews.length, 'elements');
-  patternPreviews.forEach((preview) => {
-    preview.classList.remove('animated-active');
-    console.log(
-      'Removed animated-active from element with classes:',
-      preview.className,
-    );
-  });
-}
+// Pattern and animation preview helpers removed – no longer required
 
 // Function to save colors automatically
 function saveColors() {
@@ -288,41 +189,5 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Reset button not found');
   }
 
-  // Event listener for the animated highlights toggle - save on change
-  const animatedToggle = document.getElementById('animated-highlights-toggle');
-  if (animatedToggle && animatedToggle instanceof HTMLInputElement) {
-    animatedToggle.addEventListener('change', () => {
-      const enabled = animatedToggle.checked;
-
-      // Update animation preview visibility
-      if (enabled) {
-        enableAnimationPreviews();
-      } else {
-        disableAnimationPreviews();
-      }
-
-      chrome.storage.sync.set({ animatedHighlightsEnabled: enabled }, () => {
-        console.log(`Animated highlights ${enabled ? 'enabled' : 'disabled'}`);
-      });
-    });
-  }
-
-  // Event listener for the color blind mode toggle - save on change
-  const colorBlindToggle = document.getElementById('color-blind-mode-toggle');
-  if (colorBlindToggle && colorBlindToggle instanceof HTMLInputElement) {
-    colorBlindToggle.addEventListener('change', () => {
-      const enabled = colorBlindToggle.checked;
-
-      // Update pattern preview visibility
-      if (enabled) {
-        enableColorBlindPatterns();
-      } else {
-        disableColorBlindPatterns();
-      }
-
-      chrome.storage.sync.set({ colorBlindModeEnabled: enabled }, () => {
-        console.log(`Color blind mode ${enabled ? 'enabled' : 'disabled'}`);
-      });
-    });
-  }
+  // No toggle listeners – feature removed
 });

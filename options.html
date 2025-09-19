@@ -141,124 +141,6 @@
         opacity: 0;
         pointer-events: none;
       }
-
-      /* Color blind patterns */
-      .pattern-preview {
-        background-size: 10px 10px;
-        background-repeat: repeat;
-        transition: background-image 0.3s ease;
-      }
-
-      /* Text shadow only when color blind mode or animation is active */
-      .pattern-preview.color-blind-active,
-      .pattern-preview.animated-active {
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff;
-      }
-
-      .pattern-preview.gray-pattern {
-        background-image: repeating-linear-gradient(45deg, #ccc, #ccc 2px, transparent 2px, transparent 5px);
-      }
-
-      .pattern-preview.brown-pattern {
-        background-image: repeating-linear-gradient(0deg, #8B4513 0 5px, #D2B48C 5px 10px);
-      }
-
-      .pattern-preview.orange-pattern {
-        background-image: repeating-linear-gradient(45deg, orange, orange 1px, transparent 1px, transparent 4px),
-          repeating-linear-gradient(-45deg, orange, orange 1px, transparent 1px, transparent 4px);
-      }
-
-      .pattern-preview.yellow-pattern {
-        background-image: repeating-radial-gradient(circle, #ff0 0px, #ff0 2px, transparent 2px, transparent 6px);
-        background-size: 10px 10px;
-      }
-
-      .pattern-preview.green-pattern {
-        background-image: repeating-linear-gradient(90deg, #0f0, #0f0 2px, transparent 2px, transparent 5px);
-      }
-
-      .pattern-preview.blue-pattern {
-        background-image: repeating-linear-gradient(0deg, #00f, #00f 2px, transparent 2px, transparent 5px);
-      }
-
-      .pattern-preview.purple-pattern {
-        background-image: repeating-linear-gradient(135deg, purple, purple 2px, transparent 2px, transparent 5px);
-      }
-
-      .pattern-preview.pink-pattern {
-        background-image: repeating-radial-gradient(circle, pink 0 1px, transparent 1px 4px);
-        background-size: 8px 8px;
-      }
-
-      .pattern-preview.red-pattern {
-        background-image: repeating-linear-gradient(0deg, red, red 1px, transparent 1px, transparent 5px),
-          repeating-linear-gradient(90deg, red, red 1px, transparent 1px, transparent 5px);
-      }
-
-      /* Hide pattern when not in color blind mode */
-      .pattern-preview:not(.color-blind-active) {
-        background-image: none !important;
-      }
-
-      /* Animation styles for preview highlights - matching actual extension styles */
-      @keyframes subtlePulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.7; }
-      }
-
-      @keyframes colorCycle {
-        0%, 100% { filter: brightness(100%); }
-        25% { filter: brightness(110%) saturate(120%); }
-        50% { filter: brightness(90%) saturate(80%); }
-        75% { filter: brightness(105%) saturate(110%); }
-      }
-
-      @keyframes gentleGlow {
-        0%, 100% { box-shadow: 0 0 5px 0px transparent; }
-        50% { box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3); }
-      }
-
-      /* Specific animations for each color theme - more visible for previews */
-      .pattern-preview.animated-active.gray-pattern {
-        animation: subtlePulse 2s infinite ease-in-out;
-      }
-
-      .pattern-preview.animated-active.brown-pattern {
-        animation: colorCycle 3s infinite linear;
-      }
-
-      .pattern-preview.animated-active.orange-pattern {
-        animation: gentleGlow 2.2s infinite alternate;
-      }
-
-      .pattern-preview.animated-active.yellow-pattern {
-        animation: subtlePulse 2.5s infinite ease-in-out;
-      }
-
-      .pattern-preview.animated-active.green-pattern {
-        animation: colorCycle 3.5s infinite linear;
-      }
-
-      .pattern-preview.animated-active.blue-pattern {
-        animation: gentleGlow 2.5s infinite alternate;
-      }
-
-      .pattern-preview.animated-active.purple-pattern {
-        animation: subtlePulse 1.8s infinite ease-in-out;
-      }
-
-      .pattern-preview.animated-active.pink-pattern {
-        animation: gentleGlow 2.8s infinite alternate;
-      }
-
-      .pattern-preview.animated-active.red-pattern {
-        animation: colorCycle 2.8s infinite linear;
-      }
-
-      /* Hide animation when not in animated mode */
-      .pattern-preview:not(.animated-active) {
-        animation: none !important;
-      }
     </style>
 </head>
 
@@ -425,22 +307,7 @@
         <hr />
 
         <div class="mt-8 mb-6">
-          <div class="flex items-center justify-center space-x-8">
-            <label for="animated-highlights-toggle" class="flex items-center cursor-pointer">
-              <span class="mr-3 text-sm font-medium text-muted">Enable Animated Highlights</span>
-              <div class="relative">
-                <input type="checkbox" id="animated-highlights-toggle" class="toggle-input">
-                <div class="toggle-switch"></div>
-              </div>
-            </label>
-            <label for="color-blind-mode-toggle" class="flex items-center cursor-pointer">
-              <span class="mr-3 text-sm font-medium text-muted">Color Blind Mode</span>
-              <div class="relative">
-                <input type="checkbox" id="color-blind-mode-toggle" class="toggle-input">
-                <div class="toggle-switch"></div>
-              </div>
-            </label>
-          </div>
+          <!-- Animated highlight and color-blind toggles removed -->
         </div>
 
         <div class="flex justify-center mt-8">
