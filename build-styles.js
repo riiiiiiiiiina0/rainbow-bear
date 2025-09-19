@@ -223,7 +223,9 @@ for (const t of themes) {
     t.name,
   )} theme */\n${variantSelectors} {\n  background: var(--${
     t.name
-  }-highlight) !important;\n  color: var(--${t.name}-text) !important;`;
+  }-highlight) !important;\n  color: var(--${
+    t.name
+  }-text) !important;\n  border-radius: 4px;`;
   if (t.setGlow) {
     normal += `\n  --current-highlight-glow: var(--${t.name}-highlight);`;
   }

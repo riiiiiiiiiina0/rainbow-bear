@@ -78,6 +78,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(255, 255, 235, 0.1)'] {
   background: var(--gray-highlight) !important;
   color: var(--gray-text) !important;
+  border-radius: 4px;
 }
 
 .animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(240, 239, 237, 1)'],
@@ -118,6 +119,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(255, 177, 129, 0.191)'] {
   background: var(--brown-highlight) !important;
   color: var(--brown-text) !important;
+  border-radius: 4px;
 }
 
 .animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(245, 237, 233, 1)'],
@@ -158,6 +160,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(255, 147, 75, 0.278)'] {
   background: var(--orange-highlight) !important;
   color: var(--orange-text) !important;
+  border-radius: 4px;
   --current-highlight-glow: var(--orange-highlight);
 }
 
@@ -199,6 +202,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(255, 216, 112, 0.23)'] {
   background: var(--yellow-highlight) !important;
   color: var(--yellow-text) !important;
+  border-radius: 4px;
 }
 
 .animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(249, 243, 220, 1)'],
@@ -239,6 +243,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(108, 255, 172, 0.156)'] {
   background: var(--green-highlight) !important;
   color: var(--green-text) !important;
+  border-radius: 4px;
 }
 
 .animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(232, 241, 236, 1)'],
@@ -279,6 +284,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(67, 155, 255, 0.239)'] {
   background: var(--blue-highlight) !important;
   color: var(--blue-text) !important;
+  border-radius: 4px;
   --current-highlight-glow: var(--blue-highlight);
 }
 
@@ -320,6 +326,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(200, 125, 255, 0.2)'] {
   background: var(--purple-highlight) !important;
   color: var(--purple-text) !important;
+  border-radius: 4px;
 }
 
 .animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(243, 235, 249, 1)'],
@@ -360,6 +367,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(255, 103, 177, 0.23)'] {
   background: var(--pink-highlight) !important;
   color: var(--pink-text) !important;
+  border-radius: 4px;
   --current-highlight-glow: var(--pink-highlight);
 }
 
@@ -401,6 +409,7 @@
 *:not(nav):not(nav *)[style*='background: rgba(255, 104, 92, 0.239)'] {
   background: var(--red-highlight) !important;
   color: var(--red-text) !important;
+  border-radius: 4px;
 }
 
 .animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(252, 233, 231, 1)'],
