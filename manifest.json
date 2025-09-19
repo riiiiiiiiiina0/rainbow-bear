@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Rainbow Bear",
-  "version": "1.15",
+  "version": "1.16",
   "description": "Make Notion highlights vivid, readable, and color‑blind friendly. Custom colors, optional animations, and gentle patterns.",
   "icons": {
     "16": "icons/icon-16x16.png",
