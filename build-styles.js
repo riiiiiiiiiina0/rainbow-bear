@@ -9,22 +9,17 @@ const path = require('path');
  * Theme definition table – keeps highlight colour, text colour, the list of
  * inline-style colour variants we need to match, and the animation used when
  * the `.animated-highlights-active` class is present.
+ *
+ * Notion now uses CSS custom properties (CSS variables) for colors:
+ * - Text colors: var(--c-{abbrev}TexSec)
+ * - Background colors: var(--ca-{abbrev}BacSecTra)
  */
 const themes = [
   {
     name: 'gray',
     highlight: '#dcdcdc',
     text: 'black',
-    variants: [
-      'rgba(240, 239, 237, 1)',
-      'rgb(240, 239, 237)',
-      'rgba(47, 47, 47, 1)',
-      'rgb(47, 47, 47)',
-      'rgba(84, 72, 49, 0.15)',
-      'rgba(255, 255, 255, 0.13)',
-      'rgba(42, 28, 0, 0.07)',
-      'rgba(255, 255, 235, 0.1)',
-    ],
+    cssVarPrefix: 'gra',
     animation: 'subtlePulse 2s infinite ease-in-out',
     setGlow: false,
   },
@@ -32,16 +27,7 @@ const themes = [
     name: 'brown',
     highlight: '#986a33',
     text: 'white',
-    variants: [
-      'rgba(245, 237, 233, 1)',
-      'rgb(245, 237, 233)',
-      'rgba(74, 50, 40, 1)',
-      'rgb(74, 50, 40)',
-      'rgba(210, 162, 141, 0.35)',
-      'rgba(184, 101, 67, 0.45)',
-      'rgba(139, 46, 0, 0.086)',
-      'rgba(255, 177, 129, 0.191)',
-    ],
+    cssVarPrefix: 'bro',
     animation: 'colorCycle 3s infinite linear',
     setGlow: false,
   },
@@ -49,16 +35,7 @@ const themes = [
     name: 'orange',
     highlight: '#ff9351',
     text: 'white',
-    variants: [
-      'rgba(251, 235, 222, 1)',
-      'rgb(251, 235, 222)',
-      'rgba(92, 59, 35, 1)',
-      'rgb(92, 59, 35)',
-      'rgba(224, 124, 57, 0.27)',
-      'rgba(233, 126, 35, 0.45)',
-      'rgba(224, 101, 1, 0.129)',
-      'rgba(255, 147, 75, 0.278)',
-    ],
+    cssVarPrefix: 'ora',
     animation: 'gentleGlow 2.2s infinite alternate',
     setGlow: true,
   },
@@ -66,16 +43,7 @@ const themes = [
     name: 'yellow',
     highlight: '#faff72',
     text: 'black',
-    variants: [
-      'rgba(249, 243, 220, 1)',
-      'rgb(249, 243, 220)',
-      'rgba(86, 67, 40, 1)',
-      'rgb(86, 67, 40)',
-      'rgba(236, 191, 66, 0.39)',
-      'rgba(250, 177, 67, 0.5)',
-      'rgba(211, 168, 0, 0.137)',
-      'rgba(255, 216, 112, 0.23)',
-    ],
+    cssVarPrefix: 'yel',
     animation: 'subtlePulse 2.5s infinite ease-in-out',
     setGlow: false,
   },
@@ -83,16 +51,7 @@ const themes = [
     name: 'green',
     highlight: '#74de2e',
     text: 'black',
-    variants: [
-      'rgba(232, 241, 236, 1)',
-      'rgb(232, 241, 236)',
-      'rgba(36, 61, 48, 1)',
-      'rgb(36, 61, 48)',
-      'rgba(123, 183, 129, 0.27)',
-      'rgba(45, 153, 100, 0.5)',
-      'rgba(0, 100, 45, 0.09)',
-      'rgba(108, 255, 172, 0.156)',
-    ],
+    cssVarPrefix: 'gre',
     animation: 'colorCycle 3.5s infinite linear',
     setGlow: false,
   },
@@ -100,16 +59,7 @@ const themes = [
     name: 'blue',
     highlight: '#3da5ff',
     text: 'white',
-    variants: [
-      'rgba(232, 242, 250, 1)',
-      'rgb(232, 242, 250)',
-      'rgba(20, 58, 78, 1)',
-      'rgb(20, 58, 78)',
-      'rgba(93, 165, 206, 0.27)',
-      'rgba(51, 126, 169, 0.5)',
-      'rgba(0, 111, 200, 0.09)',
-      'rgba(67, 155, 255, 0.239)',
-    ],
+    cssVarPrefix: 'blu',
     animation: 'gentleGlow 2.5s infinite alternate',
     setGlow: true,
   },
@@ -117,16 +67,7 @@ const themes = [
     name: 'purple',
     highlight: '#bf51e2',
     text: 'white',
-    variants: [
-      'rgba(243, 235, 249, 1)',
-      'rgb(243, 235, 249)',
-      'rgba(60, 45, 73, 1)',
-      'rgb(60, 45, 73)',
-      'rgba(168, 129, 197, 0.27)',
-      'rgba(168, 91, 242, 0.34)',
-      'rgba(102, 0, 178, 0.078)',
-      'rgba(200, 125, 255, 0.2)',
-    ],
+    cssVarPrefix: 'pur',
     animation: 'subtlePulse 1.8s infinite ease-in-out',
     setGlow: false,
   },
@@ -134,16 +75,7 @@ const themes = [
     name: 'pink',
     highlight: '#ff74bc',
     text: 'white',
-    variants: [
-      'rgba(250, 233, 241, 1)',
-      'rgb(250, 233, 241)',
-      'rgba(78, 44, 60, 1)',
-      'rgb(78, 44, 60)',
-      'rgba(225, 136, 179, 0.27)',
-      'rgba(220, 76, 145, 0.4)',
-      'rgba(197, 0, 93, 0.086)',
-      'rgba(255, 103, 177, 0.23)',
-    ],
+    cssVarPrefix: 'pin',
     animation: 'gentleGlow 2.8s infinite alternate',
     setGlow: true,
   },
@@ -151,16 +83,7 @@ const themes = [
     name: 'red',
     highlight: '#ff3737',
     text: 'white',
-    variants: [
-      'rgba(252, 233, 231, 1)',
-      'rgb(252, 233, 231)',
-      'rgba(82, 46, 42, 1)',
-      'rgb(82, 46, 42)',
-      'rgba(244, 171, 159, 0.4)',
-      'rgba(222, 85, 83, 0.45)',
-      'rgba(223, 22, 0, 0.094)',
-      'rgba(255, 104, 92, 0.239)',
-    ],
+    cssVarPrefix: 'red',
     animation: 'colorCycle 2.8s infinite linear',
     setGlow: false,
   },
@@ -205,18 +128,11 @@ root.push('}');
 // ------------------ Build theme selector rules ------------------
 const blocks = [];
 for (const t of themes) {
-  const variantSelectors = t.variants
-    .flatMap((v) => {
-      // Ensure we preserve the exact spacing that might appear after "background:".
-      // 1. Always include selector exactly as given in the variants array (may already start with a space).
-      // 2. If the variant does NOT start with a space, also add a version WITH the leading space so both forms are matched.
-      const selectors = [`*:not(nav):not(nav *)[style*='background:${v}']`];
-      if (!v.startsWith(' ')) {
-        selectors.push(`*:not(nav):not(nav *)[style*='background: ${v}']`);
-      }
-      return selectors;
-    })
-    .join(',\n');
+  // Build selectors for both text color and background color using Notion's CSS variables
+  const textColorSelector = `*:not(nav):not(nav *)[style*='color:var(--c-${t.cssVarPrefix}TexSec)']`;
+  const bgColorSelector = `*:not(nav):not(nav *)[style*='background:var(--ca-${t.cssVarPrefix}BacSecTra)']`;
+
+  const variantSelectors = [textColorSelector, bgColorSelector].join(',\n');
 
   // normal state
   let normal = `/* ${cap(

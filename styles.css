@@ -60,374 +60,122 @@
 }
 
 /* Gray theme */
-*:not(nav):not(nav *)[style*='background:rgba(240, 239, 237, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(240, 239, 237, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(240, 239, 237)'],
-*:not(nav):not(nav *)[style*='background: rgb(240, 239, 237)'],
-*:not(nav):not(nav *)[style*='background:rgba(47, 47, 47, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(47, 47, 47, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(47, 47, 47)'],
-*:not(nav):not(nav *)[style*='background: rgb(47, 47, 47)'],
-*:not(nav):not(nav *)[style*='background:rgba(84, 72, 49, 0.15)'],
-*:not(nav):not(nav *)[style*='background: rgba(84, 72, 49, 0.15)'],
-*:not(nav):not(nav *)[style*='background:rgba(255, 255, 255, 0.13)'],
-*:not(nav):not(nav *)[style*='background: rgba(255, 255, 255, 0.13)'],
-*:not(nav):not(nav *)[style*='background:rgba(42, 28, 0, 0.07)'],
-*:not(nav):not(nav *)[style*='background: rgba(42, 28, 0, 0.07)'],
-*:not(nav):not(nav *)[style*='background:rgba(255, 255, 235, 0.1)'],
-*:not(nav):not(nav *)[style*='background: rgba(255, 255, 235, 0.1)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-graTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-graBacSecTra)'] {
   background: var(--gray-highlight) !important;
   color: var(--gray-text) !important;
   border-radius: 4px;
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(240, 239, 237, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(240, 239, 237, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(240, 239, 237)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(240, 239, 237)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(47, 47, 47, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(47, 47, 47, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(47, 47, 47)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(47, 47, 47)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(84, 72, 49, 0.15)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(84, 72, 49, 0.15)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(255, 255, 255, 0.13)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(255, 255, 255, 0.13)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(42, 28, 0, 0.07)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(42, 28, 0, 0.07)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(255, 255, 235, 0.1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(255, 255, 235, 0.1)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-graTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-graBacSecTra)'] {
   animation: subtlePulse 2s infinite ease-in-out;
 }
 
 /* Brown theme */
-*:not(nav):not(nav *)[style*='background:rgba(245, 237, 233, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(245, 237, 233, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(245, 237, 233)'],
-*:not(nav):not(nav *)[style*='background: rgb(245, 237, 233)'],
-*:not(nav):not(nav *)[style*='background:rgba(74, 50, 40, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(74, 50, 40, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(74, 50, 40)'],
-*:not(nav):not(nav *)[style*='background: rgb(74, 50, 40)'],
-*:not(nav):not(nav *)[style*='background:rgba(210, 162, 141, 0.35)'],
-*:not(nav):not(nav *)[style*='background: rgba(210, 162, 141, 0.35)'],
-*:not(nav):not(nav *)[style*='background:rgba(184, 101, 67, 0.45)'],
-*:not(nav):not(nav *)[style*='background: rgba(184, 101, 67, 0.45)'],
-*:not(nav):not(nav *)[style*='background:rgba(139, 46, 0, 0.086)'],
-*:not(nav):not(nav *)[style*='background: rgba(139, 46, 0, 0.086)'],
-*:not(nav):not(nav *)[style*='background:rgba(255, 177, 129, 0.191)'],
-*:not(nav):not(nav *)[style*='background: rgba(255, 177, 129, 0.191)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-broTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-broBacSecTra)'] {
   background: var(--brown-highlight) !important;
   color: var(--brown-text) !important;
   border-radius: 4px;
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(245, 237, 233, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(245, 237, 233, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(245, 237, 233)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(245, 237, 233)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(74, 50, 40, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(74, 50, 40, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(74, 50, 40)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(74, 50, 40)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(210, 162, 141, 0.35)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(210, 162, 141, 0.35)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(184, 101, 67, 0.45)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(184, 101, 67, 0.45)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(139, 46, 0, 0.086)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(139, 46, 0, 0.086)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(255, 177, 129, 0.191)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(255, 177, 129, 0.191)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-broTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-broBacSecTra)'] {
   animation: colorCycle 3s infinite linear;
 }
 
 /* Orange theme */
-*:not(nav):not(nav *)[style*='background:rgba(251, 235, 222, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(251, 235, 222, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(251, 235, 222)'],
-*:not(nav):not(nav *)[style*='background: rgb(251, 235, 222)'],
-*:not(nav):not(nav *)[style*='background:rgba(92, 59, 35, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(92, 59, 35, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(92, 59, 35)'],
-*:not(nav):not(nav *)[style*='background: rgb(92, 59, 35)'],
-*:not(nav):not(nav *)[style*='background:rgba(224, 124, 57, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(224, 124, 57, 0.27)'],
-*:not(nav):not(nav *)[style*='background:rgba(233, 126, 35, 0.45)'],
-*:not(nav):not(nav *)[style*='background: rgba(233, 126, 35, 0.45)'],
-*:not(nav):not(nav *)[style*='background:rgba(224, 101, 1, 0.129)'],
-*:not(nav):not(nav *)[style*='background: rgba(224, 101, 1, 0.129)'],
-*:not(nav):not(nav *)[style*='background:rgba(255, 147, 75, 0.278)'],
-*:not(nav):not(nav *)[style*='background: rgba(255, 147, 75, 0.278)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-oraTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-oraBacSecTra)'] {
   background: var(--orange-highlight) !important;
   color: var(--orange-text) !important;
   border-radius: 4px;
   --current-highlight-glow: var(--orange-highlight);
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(251, 235, 222, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(251, 235, 222, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(251, 235, 222)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(251, 235, 222)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(92, 59, 35, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(92, 59, 35, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(92, 59, 35)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(92, 59, 35)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(224, 124, 57, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(224, 124, 57, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(233, 126, 35, 0.45)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(233, 126, 35, 0.45)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(224, 101, 1, 0.129)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(224, 101, 1, 0.129)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(255, 147, 75, 0.278)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(255, 147, 75, 0.278)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-oraTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-oraBacSecTra)'] {
   animation: gentleGlow 2.2s infinite alternate;
 }
 
 /* Yellow theme */
-*:not(nav):not(nav *)[style*='background:rgba(249, 243, 220, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(249, 243, 220, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(249, 243, 220)'],
-*:not(nav):not(nav *)[style*='background: rgb(249, 243, 220)'],
-*:not(nav):not(nav *)[style*='background:rgba(86, 67, 40, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(86, 67, 40, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(86, 67, 40)'],
-*:not(nav):not(nav *)[style*='background: rgb(86, 67, 40)'],
-*:not(nav):not(nav *)[style*='background:rgba(236, 191, 66, 0.39)'],
-*:not(nav):not(nav *)[style*='background: rgba(236, 191, 66, 0.39)'],
-*:not(nav):not(nav *)[style*='background:rgba(250, 177, 67, 0.5)'],
-*:not(nav):not(nav *)[style*='background: rgba(250, 177, 67, 0.5)'],
-*:not(nav):not(nav *)[style*='background:rgba(211, 168, 0, 0.137)'],
-*:not(nav):not(nav *)[style*='background: rgba(211, 168, 0, 0.137)'],
-*:not(nav):not(nav *)[style*='background:rgba(255, 216, 112, 0.23)'],
-*:not(nav):not(nav *)[style*='background: rgba(255, 216, 112, 0.23)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-yelTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-yelBacSecTra)'] {
   background: var(--yellow-highlight) !important;
   color: var(--yellow-text) !important;
   border-radius: 4px;
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(249, 243, 220, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(249, 243, 220, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(249, 243, 220)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(249, 243, 220)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(86, 67, 40, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(86, 67, 40, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(86, 67, 40)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(86, 67, 40)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(236, 191, 66, 0.39)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(236, 191, 66, 0.39)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(250, 177, 67, 0.5)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(250, 177, 67, 0.5)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(211, 168, 0, 0.137)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(211, 168, 0, 0.137)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(255, 216, 112, 0.23)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(255, 216, 112, 0.23)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-yelTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-yelBacSecTra)'] {
   animation: subtlePulse 2.5s infinite ease-in-out;
 }
 
 /* Green theme */
-*:not(nav):not(nav *)[style*='background:rgba(232, 241, 236, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(232, 241, 236, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(232, 241, 236)'],
-*:not(nav):not(nav *)[style*='background: rgb(232, 241, 236)'],
-*:not(nav):not(nav *)[style*='background:rgba(36, 61, 48, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(36, 61, 48, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(36, 61, 48)'],
-*:not(nav):not(nav *)[style*='background: rgb(36, 61, 48)'],
-*:not(nav):not(nav *)[style*='background:rgba(123, 183, 129, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(123, 183, 129, 0.27)'],
-*:not(nav):not(nav *)[style*='background:rgba(45, 153, 100, 0.5)'],
-*:not(nav):not(nav *)[style*='background: rgba(45, 153, 100, 0.5)'],
-*:not(nav):not(nav *)[style*='background:rgba(0, 100, 45, 0.09)'],
-*:not(nav):not(nav *)[style*='background: rgba(0, 100, 45, 0.09)'],
-*:not(nav):not(nav *)[style*='background:rgba(108, 255, 172, 0.156)'],
-*:not(nav):not(nav *)[style*='background: rgba(108, 255, 172, 0.156)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-greTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-greBacSecTra)'] {
   background: var(--green-highlight) !important;
   color: var(--green-text) !important;
   border-radius: 4px;
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(232, 241, 236, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(232, 241, 236, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(232, 241, 236)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(232, 241, 236)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(36, 61, 48, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(36, 61, 48, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(36, 61, 48)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(36, 61, 48)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(123, 183, 129, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(123, 183, 129, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(45, 153, 100, 0.5)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(45, 153, 100, 0.5)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(0, 100, 45, 0.09)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(0, 100, 45, 0.09)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(108, 255, 172, 0.156)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(108, 255, 172, 0.156)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-greTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-greBacSecTra)'] {
   animation: colorCycle 3.5s infinite linear;
 }
 
 /* Blue theme */
-*:not(nav):not(nav *)[style*='background:rgba(232, 242, 250, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(232, 242, 250, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(232, 242, 250)'],
-*:not(nav):not(nav *)[style*='background: rgb(232, 242, 250)'],
-*:not(nav):not(nav *)[style*='background:rgba(20, 58, 78, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(20, 58, 78, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(20, 58, 78)'],
-*:not(nav):not(nav *)[style*='background: rgb(20, 58, 78)'],
-*:not(nav):not(nav *)[style*='background:rgba(93, 165, 206, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(93, 165, 206, 0.27)'],
-*:not(nav):not(nav *)[style*='background:rgba(51, 126, 169, 0.5)'],
-*:not(nav):not(nav *)[style*='background: rgba(51, 126, 169, 0.5)'],
-*:not(nav):not(nav *)[style*='background:rgba(0, 111, 200, 0.09)'],
-*:not(nav):not(nav *)[style*='background: rgba(0, 111, 200, 0.09)'],
-*:not(nav):not(nav *)[style*='background:rgba(67, 155, 255, 0.239)'],
-*:not(nav):not(nav *)[style*='background: rgba(67, 155, 255, 0.239)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-bluTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-bluBacSecTra)'] {
   background: var(--blue-highlight) !important;
   color: var(--blue-text) !important;
   border-radius: 4px;
   --current-highlight-glow: var(--blue-highlight);
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(232, 242, 250, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(232, 242, 250, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(232, 242, 250)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(232, 242, 250)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(20, 58, 78, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(20, 58, 78, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(20, 58, 78)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(20, 58, 78)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(93, 165, 206, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(93, 165, 206, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(51, 126, 169, 0.5)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(51, 126, 169, 0.5)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(0, 111, 200, 0.09)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(0, 111, 200, 0.09)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(67, 155, 255, 0.239)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(67, 155, 255, 0.239)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-bluTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-bluBacSecTra)'] {
   animation: gentleGlow 2.5s infinite alternate;
 }
 
 /* Purple theme */
-*:not(nav):not(nav *)[style*='background:rgba(243, 235, 249, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(243, 235, 249, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(243, 235, 249)'],
-*:not(nav):not(nav *)[style*='background: rgb(243, 235, 249)'],
-*:not(nav):not(nav *)[style*='background:rgba(60, 45, 73, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(60, 45, 73, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(60, 45, 73)'],
-*:not(nav):not(nav *)[style*='background: rgb(60, 45, 73)'],
-*:not(nav):not(nav *)[style*='background:rgba(168, 129, 197, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(168, 129, 197, 0.27)'],
-*:not(nav):not(nav *)[style*='background:rgba(168, 91, 242, 0.34)'],
-*:not(nav):not(nav *)[style*='background: rgba(168, 91, 242, 0.34)'],
-*:not(nav):not(nav *)[style*='background:rgba(102, 0, 178, 0.078)'],
-*:not(nav):not(nav *)[style*='background: rgba(102, 0, 178, 0.078)'],
-*:not(nav):not(nav *)[style*='background:rgba(200, 125, 255, 0.2)'],
-*:not(nav):not(nav *)[style*='background: rgba(200, 125, 255, 0.2)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-purTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-purBacSecTra)'] {
   background: var(--purple-highlight) !important;
   color: var(--purple-text) !important;
   border-radius: 4px;
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(243, 235, 249, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(243, 235, 249, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(243, 235, 249)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(243, 235, 249)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(60, 45, 73, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(60, 45, 73, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(60, 45, 73)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(60, 45, 73)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(168, 129, 197, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(168, 129, 197, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(168, 91, 242, 0.34)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(168, 91, 242, 0.34)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(102, 0, 178, 0.078)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(102, 0, 178, 0.078)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(200, 125, 255, 0.2)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(200, 125, 255, 0.2)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-purTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-purBacSecTra)'] {
   animation: subtlePulse 1.8s infinite ease-in-out;
 }
 
 /* Pink theme */
-*:not(nav):not(nav *)[style*='background:rgba(250, 233, 241, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(250, 233, 241, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(250, 233, 241)'],
-*:not(nav):not(nav *)[style*='background: rgb(250, 233, 241)'],
-*:not(nav):not(nav *)[style*='background:rgba(78, 44, 60, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(78, 44, 60, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(78, 44, 60)'],
-*:not(nav):not(nav *)[style*='background: rgb(78, 44, 60)'],
-*:not(nav):not(nav *)[style*='background:rgba(225, 136, 179, 0.27)'],
-*:not(nav):not(nav *)[style*='background: rgba(225, 136, 179, 0.27)'],
-*:not(nav):not(nav *)[style*='background:rgba(220, 76, 145, 0.4)'],
-*:not(nav):not(nav *)[style*='background: rgba(220, 76, 145, 0.4)'],
-*:not(nav):not(nav *)[style*='background:rgba(197, 0, 93, 0.086)'],
-*:not(nav):not(nav *)[style*='background: rgba(197, 0, 93, 0.086)'],
-*:not(nav):not(nav *)[style*='background:rgba(255, 103, 177, 0.23)'],
-*:not(nav):not(nav *)[style*='background: rgba(255, 103, 177, 0.23)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-pinTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-pinBacSecTra)'] {
   background: var(--pink-highlight) !important;
   color: var(--pink-text) !important;
   border-radius: 4px;
   --current-highlight-glow: var(--pink-highlight);
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(250, 233, 241, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(250, 233, 241, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(250, 233, 241)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(250, 233, 241)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(78, 44, 60, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(78, 44, 60, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(78, 44, 60)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(78, 44, 60)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(225, 136, 179, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(225, 136, 179, 0.27)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(220, 76, 145, 0.4)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(220, 76, 145, 0.4)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(197, 0, 93, 0.086)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(197, 0, 93, 0.086)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(255, 103, 177, 0.23)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(255, 103, 177, 0.23)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-pinTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-pinBacSecTra)'] {
   animation: gentleGlow 2.8s infinite alternate;
 }
 
 /* Red theme */
-*:not(nav):not(nav *)[style*='background:rgba(252, 233, 231, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(252, 233, 231, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(252, 233, 231)'],
-*:not(nav):not(nav *)[style*='background: rgb(252, 233, 231)'],
-*:not(nav):not(nav *)[style*='background:rgba(82, 46, 42, 1)'],
-*:not(nav):not(nav *)[style*='background: rgba(82, 46, 42, 1)'],
-*:not(nav):not(nav *)[style*='background:rgb(82, 46, 42)'],
-*:not(nav):not(nav *)[style*='background: rgb(82, 46, 42)'],
-*:not(nav):not(nav *)[style*='background:rgba(244, 171, 159, 0.4)'],
-*:not(nav):not(nav *)[style*='background: rgba(244, 171, 159, 0.4)'],
-*:not(nav):not(nav *)[style*='background:rgba(222, 85, 83, 0.45)'],
-*:not(nav):not(nav *)[style*='background: rgba(222, 85, 83, 0.45)'],
-*:not(nav):not(nav *)[style*='background:rgba(223, 22, 0, 0.094)'],
-*:not(nav):not(nav *)[style*='background: rgba(223, 22, 0, 0.094)'],
-*:not(nav):not(nav *)[style*='background:rgba(255, 104, 92, 0.239)'],
-*:not(nav):not(nav *)[style*='background: rgba(255, 104, 92, 0.239)'] {
+*:not(nav):not(nav *)[style*='color:var(--c-redTexSec)'],
+*:not(nav):not(nav *)[style*='background:var(--ca-redBacSecTra)'] {
   background: var(--red-highlight) !important;
   color: var(--red-text) !important;
   border-radius: 4px;
 }
 
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(252, 233, 231, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(252, 233, 231, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(252, 233, 231)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(252, 233, 231)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(82, 46, 42, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(82, 46, 42, 1)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgb(82, 46, 42)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgb(82, 46, 42)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(244, 171, 159, 0.4)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(244, 171, 159, 0.4)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(222, 85, 83, 0.45)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(222, 85, 83, 0.45)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(223, 22, 0, 0.094)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(223, 22, 0, 0.094)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background:rgba(255, 104, 92, 0.239)'],
-.animated-highlights-active *:not(nav):not(nav *)[style*='background: rgba(255, 104, 92, 0.239)'] {
+.animated-highlights-active *:not(nav):not(nav *)[style*='color:var(--c-redTexSec)'],
+.animated-highlights-active *:not(nav):not(nav *)[style*='background:var(--ca-redBacSecTra)'] {
   animation: colorCycle 2.8s infinite linear;
 }
 
