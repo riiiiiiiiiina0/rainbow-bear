@@ -5,7 +5,7 @@
   const defaultColors = {
     gray: { highlight: '#dcdcdc', text: '#000000' },
     brown: { highlight: '#986a33', text: '#ffffff' },
-    orange: { highlight: '#ff9351', text: '#000000' },
+    orange: { highlight: '#ff9351', text: '#ffffff' },
     yellow: { highlight: '#faff72', text: '#000000' },
     green: { highlight: '#74de2e', text: '#000000' },
     blue: { highlight: '#3da5ff', text: '#ffffff' },
@@ -17,12 +17,16 @@
   // Animation & color-blind support removed – no pattern constants required.
 
   function applyStyles(colors) {
-    let dynamicStyle = document.getElementById(STYLE_ID);
-    if (!dynamicStyle) {
-      dynamicStyle = document.createElement('style');
-      dynamicStyle.id = STYLE_ID;
-      document.head.appendChild(dynamicStyle);
+    // Remove existing style if present to ensure clean state
+    const existingStyle = document.getElementById(STYLE_ID);
+    if (existingStyle) {
+      existingStyle.remove();
     }
+
+    // Create new style element
+    const dynamicStyle = document.createElement('style');
+    dynamicStyle.id = STYLE_ID;
+    dynamicStyle.setAttribute('type', 'text/css');
 
     const cssVariables = [];
 
@@ -35,9 +39,18 @@
       }
     }
 
-    // Color-blind mode no longer supported; related styles removed.
+    // Build CSS content with proper formatting
+    const cssContent = `:root {\n  ${cssVariables.join('\n  ')}\n}`;
+    dynamicStyle.textContent = cssContent;
 
-    dynamicStyle.textContent = `:root { ${cssVariables.join(' ')} }`;
+    // Append to end of head to ensure it comes after other styles
+    document.head.appendChild(dynamicStyle);
+
+    // Force style recalculation
+    document.body.offsetHeight; // Trigger reflow
+
+    // Debug logging
+    console.log('Rainbow Bear: Applied custom colors', colors);
   }
 
   // Animated highlight feature removed.
@@ -58,9 +71,7 @@
 
         if (changes.highlightColors) {
           applyStyles(currentColors);
-          console.log(
-            'Better Notion Highlights: Highlight colors or color blind mode updated.',
-          );
+          console.log('Rainbow Bear: Highlight colors updated.');
         }
       });
       // animatedHighlightsEnabled changes no longer relevant

@@ -129,10 +129,19 @@ root.push('}');
 const blocks = [];
 for (const t of themes) {
   // Build selectors for both text color and background color using Notion's CSS variables
-  const textColorSelector = `*:not(nav):not(nav *)[style*='color:var(--c-${t.cssVarPrefix}TexSec)']`;
-  const bgColorSelector = `*:not(nav):not(nav *)[style*='background:var(--ca-${t.cssVarPrefix}BacSecTra)']`;
+  // Handle both with and without space after colon
+  const textColorSelectors = [
+    `*:not(nav):not(nav *)[style*='color:var(--c-${t.cssVarPrefix}TexSec)']`,
+    `*:not(nav):not(nav *)[style*='color: var(--c-${t.cssVarPrefix}TexSec)']`,
+  ];
+  const bgColorSelectors = [
+    `*:not(nav):not(nav *)[style*='background:var(--ca-${t.cssVarPrefix}BacSecTra)']`,
+    `*:not(nav):not(nav *)[style*='background: var(--ca-${t.cssVarPrefix}BacSecTra)']`,
+  ];
 
-  const variantSelectors = [textColorSelector, bgColorSelector].join(',\n');
+  const variantSelectors = [...textColorSelectors, ...bgColorSelectors].join(
+    ',\n',
+  );
 
   // normal state
   let normal = `/* ${cap(
