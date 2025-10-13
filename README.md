@@ -2,7 +2,8 @@
 
 Make your Notion highlights pop! Rainbow Bear’s one and only purpose is to make highlights in Notion more vivid, more readable, and more friendly for users with color vision differences. Sprinkle a little rainbow on your workspace without changing how you use Notion. ✨
 
-![](./docs/poster.jpeg)
+![](./docs/rainbow_bear_4_1_1280x800_text.png)
+![](./docs/rainbow_bear_4_5_1280x800_text.png)
 
 <a href="https://buymeacoffee.com/riiiiiiiiiina" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
