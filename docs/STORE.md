@@ -1,40 +1,13 @@
-# Rainbow Bear — Vivid, accessible Notion highlights 🐻‍❄️🌈
+🐻‍❄️ Rainbow Bear
 
-Short description (<=132 chars):
-Make Notion highlights vivid, readable, and color‑blind friendly. Custom colors, optional animations, and gentle patterns.
+Tired of boring, hard-to-read highlights in Notion? Rainbow Bear is here to help! 🎨
 
-—
+Transform your Notion workspace with vibrant, custom-colored highlights that are easy on the eyes and color-blind friendly.
 
-## Overview
+Key Features:
+✏️ Customize both the background and text color for all 9 of Notion's default highlight colors.
+👀 Live preview your color choices in the options menu.
+🔄 Easily restore the default color settings with a single click.
+🎉 Enjoy a more readable and visually appealing Notion experience!
 
-Rainbow Bear has a single mission: make highlights in Notion more vivid, more readable, and more friendly for color‑blind users. It brightens your existing highlight colors, lets you fine‑tune the palette, and adds optional patterns to help distinguish similar hues — all without changing how you use Notion.
-
-## What you’ll love
-
-- Vivid, readable highlights: Brighter backgrounds with clear contrast so key ideas stand out.
-- Customize your palette: Choose background and text color for each Notion highlight color.
-- Works with light and dark: Looks great in both Notion themes.
-- Private and lightweight: Only uses `storage` permission. No tracking, no analytics.
-
-## How it works
-
-- Rainbow Bear updates Notion’s highlight styles on the page with improved colors and contrast.
-- Your choices are saved so they persist across tabs and sessions.
-
-## Getting started
-
-1. Install Rainbow Bear.
-2. Open Notion and highlight text as usual — colors are automatically improved.
-3. Open the extension’s Options to tweak colors.
-
-## Permissions
-
-- `storage` — used only to save your preferences. Nothing else.
-
-## Privacy
-
-Rainbow Bear does not collect or transmit personal data.
-
-## Support
-
-If you have feedback or a feature request, please leave a review or reach out via the repository’s issue tracker.
+Say goodbye to jarring highlights and hello to a more beautiful and productive workspace. Download Rainbow Bear today! 🌈
